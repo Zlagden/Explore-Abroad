@@ -19,7 +19,6 @@ Rails.application.routes.draw do
       get :my_journeys    # Custom route to list journeys for the current user
     end
   end
-  resources :countries, only: [:show]
 
   # Defines the root path route ("/")
   # root "posts#index"
