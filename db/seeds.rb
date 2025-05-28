@@ -17,6 +17,7 @@ Country.destroy_all
 
 for n in 1..10 do
     User.create!(
+
         email: Faker::Internet.email(domain: 'gmail.com'),
         password: "password",
         nationality: Faker::Nation.nationality,
@@ -25,9 +26,9 @@ for n in 1..10 do
     puts "Seeding user #{n}"
 end
 
-for n in 1..10 do 
+for n in 1..10 do
     Country.create!(
-        name: Faker::Address.country,
+        name: Faker::Address.unique.country,
         information: {
             About: Faker::Lorem.paragraph(sentence_count: 5),
             Culture: Faker::Lorem.paragraph(sentence_count: 5),
@@ -65,9 +66,8 @@ for n in 1..20 do
         location: Faker::Address.city,
         job_title: Faker::Job.title,
         country_id: rand(Country.first.id..Country.last.id),
-        longitude: Faker::Number.normal(mean: 0, standard_deviation: 180).round(4), 
+        longitude: Faker::Number.normal(mean: 0, standard_deviation: 180).round(4),
         latitude: Faker::Number.normal(mean: 0, standard_deviation: 90).round(4),
     )
     puts "Seeding job #{n}"
 end
-
