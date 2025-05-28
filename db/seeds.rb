@@ -17,7 +17,6 @@ Country.destroy_all
 
 for n in 1..10 do
     User.create!(
-
         email: Faker::Internet.email(domain: 'gmail.com'),
         password: "password",
         nationality: Faker::Nation.nationality,
@@ -43,7 +42,7 @@ for n in 1..10 do
                 Faker::Job.field,
                 ],
             },
-        image_url: "",
+        image_url: "https://t4.ftcdn.net/jpg/01/71/06/95/360_F_171069544_OmDwEP1gLIGJGnqAxWXWsLPuck49lMM0.jpg",
         longitude: Faker::Number.normal(mean: 0, standard_deviation: 180).round(4),
         latitude: Faker::Number.normal(mean: 0, standard_deviation: 90).round(4)
     )

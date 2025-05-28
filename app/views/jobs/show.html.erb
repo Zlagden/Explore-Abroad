@@ -1,22 +1,24 @@
 <h1> Job Show </h1>
 
 <div class="job-title">
-  <h2><%= @job.title %></h2>
+  <h2><%= @job.job_title %></h2>
 </div>
+<% string = @job.description %>
+<% job = eval(string) %>
 
 <div class="job-details">
     <p><strong>Job Title:</strong> <%= @job.job_title %></p>
-    <p><strong>Field:</strong> <%= @job.description.field %></p>
-    <p><strong>Position:</strong> <%= @job.description.position %></p>
-    <p><strong>Seniority:</strong> <%= @job.description.seniority %></p>
-    <p><strong>Employment Type:</strong> <%= @job.description.employment_type %></p>
-    <p><strong>Languages:</strong> <%= @job.description.languages %></p>
-    <p><strong>Description:</strong> <%= @job.description.description %></p>
+    <p><strong>Field:</strong> <%= job[:Field] %></p>
+    <p><strong>Position:</strong> <%= job[:Postion] %></p>
+    <p><strong>Seniority:</strong> <%= job[:Seniority] %></p>
+    <p><strong>Employment Type:</strong> <%= job[:Employment_Type] %></p>
+    <p><strong>Languages:</strong> <%= job[:Languages] %></p>
+    <p><strong>Description:</strong> <%= job[:Description] %></p>
     <p><strong>Posted on:</strong> <%= @job.created_at %></p>
 </div>
    
 <div class="job-location">
-    <p><strong>Country:</strong> <%= @job.country %></p>
+    <p><strong>Country:</strong> <%= @job.country.name %></p>
     <p><strong>Location:</strong> <%= @job.location %></p>
     <p><strong>Longitude:</strong> <%= @job.longitude %></p>
     <p><strong>Latitude:</strong> <%= @job.latitude %></p>
