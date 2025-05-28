@@ -53,6 +53,7 @@ for n in 1..20 do
     Job.create!(
         company_name: Faker::Company.name,
         description: {
+            Salary: "£" + Faker::Number.between(from: 30000, to: 120000).to_s,
             Field: Faker::Job.field,
             Postion: Faker::Job.position,
             Seniority: Faker::Job.seniority,
@@ -61,7 +62,12 @@ for n in 1..20 do
             Country: Faker::Address.country,
             Description: Faker::Lorem.paragraph(sentence_count: 5),
             },
-        requirements: Faker::Job.key_skill,
+        requirements: [
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            ],
         location: Faker::Address.city,
         job_title: Faker::Job.title,
         country_id: rand(Country.first.id..Country.last.id),
