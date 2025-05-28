@@ -1,17 +1,39 @@
 <h1><%= @country.name %></h1>
-<p><strong>Capital:</strong> <%= @country.capital %></p>
-<p><strong>Population:</strong> <%= @country.population %></p>
-<p><strong>Region:</strong> <%= @country.region %></p>
 
-<hr>
+<% if @country.image_url.present? %>
+  <img src="<%= @country.image_url %>" alt="<%= @country.name %>" style="max-width: 100%; height: auto;">
+<% end %>
 
-<h2>Other Countries</h2>
-<ul>
-  <% @countries.each do |country| %>
-    <li>
-      <%= link_to country.name, country_path(country) %>
-    </li>
-  <% end %>
-</ul>
+<section>
+  <h2>About</h2>
+  <p><%= @country.information["About"] %></p>
+</section>
 
-<%= link_to 'Back to Index', countries_path %>
+<section>
+  <h2>Culture</h2>
+  <p><%= @country.information["Culture"] %></p>
+</section>
+
+<section>
+  <h2>Cities</h2>
+  <ul>
+    <% @country.information["Cities"].each do |city| %>
+      <li><%= city %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Jobs</h2>
+  <ul>
+    <% @country.information["Jobs"].each do |job| %>
+      <li><%= job %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Location</h2>
+  <p>Latitude: <%= @country.latitude %></p>
+  <p>Longitude: <%= @country.longitude %></p>
+</section>
