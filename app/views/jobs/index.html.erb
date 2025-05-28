@@ -11,6 +11,7 @@
             <p>Company: <%= job.company_name %></p>
             <p>Location: <%= job.location %></p>
             <p>Salary: <%= job_description[:Salary] %></p> 
+            <p><%= link_to 'View Details', job_path(job), class: 'btn btn-primary' %></p> 
         </div>
     <% end %>
 </div>
