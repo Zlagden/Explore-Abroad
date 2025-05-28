@@ -1,12 +1,16 @@
-<div class="job-container">
-    <% # "Stringified hash" -> {hash} conversion %>
-    <% job_string = @job.description %>
-    <% job = eval(job_string) %>
+<% # "Stringified hash" -> {hash} conversion %>
+<% job_string = @job.description %>
+<% job = eval(job_string) %>
 
-    <% #"Stringified array" -> [array] conversion %>
-    <% requirement_string = @job.requirements %>
-    <% requirement = eval(requirement_string) %>
+<% #"Stringified array" -> [array] conversion %>
+<% requirement_string = @job.requirements %>
+<% requirement = eval(requirement_string) %>
+
+
+<div class="job-container">
     
+    
+
     <% #title %>
     <div class="job-title">
         <h1><%= @job.job_title %></h1>
