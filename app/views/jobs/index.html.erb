@@ -1,12 +1,17 @@
-<% # "Stringified hash" -> {hash} conversion %>
-<% job_string = @job.description %>
-<% job = eval(job_string) %>
-
-<h1><%= @country.name %>: Jobs</h1>
+<h1><%= @country.name %>: Job Index</h1>
 
 <div class="job-list">
     <% @jobs.each do |job| %>
-        <%= job.ti %> 
+        <div class="job-card bg-secondary">
+            <% # "Stringified hash" -> {hash} conversion %>
+            <% job_string = job.description %>
+            <% job_description = eval(job_string) %>
+            
+            <p><%= job.job_title %><p>
+            <p>Company: <%= job.company_name %></p>
+            <p>Location: <%= job.location %></p>
+            <p>Salary: <%= job_description[:Salary] %></p> 
+        </div>
     <% end %>
 </div>
 
