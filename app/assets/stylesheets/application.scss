@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body {
+  background: linear-gradient(to bottom, #fff5e1, #fceabb);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: image-url("world-map-transparent.png") no-repeat center center;
+  background-size: cover;
+  opacity: 0.15; // adjust to control how subtle it looks
+  z-index: -1;
+  pointer-events: none;
+}

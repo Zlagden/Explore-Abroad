@@ -1,9 +1,21 @@
-<h1>All Countries</h1>
+<div class="section-header">
+  <h1>🌍 All Countries</h1>
+  <p>Explore the countries where our alumni have traveled and worked.</p>
+</div>
 
-<ul>
+<div class="cards">
   <% @countries.each do |country| %>
-    <li>
-      <%= link_to country.name, country_path(country) %>
-    </li>
+    <%= link_to country_path(country), class: "text-decoration-none text-reset" do %>
+      <div class="card-trip">
+        <%= image_tag country.image_url, alt: "#{country.name} flag" %>
+
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= country.name %></h2>
+            <p><%= truncate(country.description, length: 100) if country.respond_to?(:description) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
