@@ -17,6 +17,7 @@ Country.destroy_all
 
 for n in 1..10 do
     User.create!(
+
         email: Faker::Internet.email(domain: 'gmail.com'),
         password: "password",
         nationality: Faker::Nation.nationality,

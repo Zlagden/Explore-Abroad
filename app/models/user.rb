@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # validates :name, presence: true
   # validates :date_of_birth, presence: true
   
-  validates :date_of_birth, presence: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
