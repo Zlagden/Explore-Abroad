@@ -1,1 +1,52 @@
 // Specific CSS for your home-page
+.pages {
+background: #FA812F;
+background: linear-gradient(0deg,rgba(250, 129, 47, 1) 0%, rgba(243, 198, 35, 1) 50%, rgba(254, 243, 226, 1) 100%);
+height: 100vh;
+
+padding-left: 10rem;
+background-position: center;
+background-image: url("sunset.png");
+
+
+}
+
+
+.page-container {
+ align-items: center;
+ justify-content: center;
+ background-position: center;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ border-radius: 10px;
+
+
+ h1 {
+   font-family: "Funnel Display", sans-serif;
+  font-weight: 800;
+  font-size: 100px;
+ }
+p {
+  font-family: "Funnel Sans", sans-serif;
+  font-weight: 300;
+  font-size: 200px;
+}
+.imgair {
+  width: 50vw;
+}
+}
+
+.btn-flat {
+  color: black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #FEF3E2;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+
+}
+
+.btn-flat:hover {
+  background: #7eb7d4;
+  color: white;
+}
