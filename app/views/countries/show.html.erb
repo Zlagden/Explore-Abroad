@@ -1,6 +1,17 @@
 <h1><%= @country.name %></h1>
-<p>Capital: <%= @country.capital %></p>
-<p>Population: <%= @country.population %></p>
-<p>Region: <%= @country.region %></p>
+<p><strong>Capital:</strong> <%= @country.capital %></p>
+<p><strong>Population:</strong> <%= @country.population %></p>
+<p><strong>Region:</strong> <%= @country.region %></p>
 
-<%= link_to 'Back to list', countries_path %>
+<hr>
+
+<h2>Other Countries</h2>
+<ul>
+  <% @countries.each do |country| %>
+    <li>
+      <%= link_to country.name, country_path(country) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Index', countries_path %>
