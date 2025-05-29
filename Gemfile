@@ -75,3 +75,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "brakeman", "~> 7.0"

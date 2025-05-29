@@ -1,15 +1,15 @@
 <% # "Stringified hash" -> {hash} conversion %>
 <% job_string = @job.description %>
-<% job = eval(job_string) %>
+<%# <% job = eval(job_string) %> %>
 
 <% #"Stringified array" -> [array] conversion %>
 <% requirement_string = @job.requirements %>
-<% requirement = eval(requirement_string) %>
+<%# <% requirement = eval(requirement_string) %> %>
 
 
 <div class="job-container">
-    
-    
+
+
 
     <% #title %>
     <div class="job-title">
@@ -26,7 +26,7 @@
                 <img src="https://static.vecteezy.com/system/resources/previews/006/948/451/large_2x/digital-marketing-concept-with-people-putting-content-images-marketing-to-the-web-dashboard-screen-search-engine-optimization-promotion-working-process-and-teamwork-flat-style-illustration-vector.jpg">
                 <img src="https://static.vecteezy.com/system/resources/previews/002/346/322/large_2x/online-programming-course-flat-concept-illustration-vector.jpg">
                 <img src="https://www.shutterstock.com/shutterstock/photos/586367912/display_1500/stock-vector-computer-code-debugging-concept-flat-style-illustration-586367912.jpg">
-            </div> 
+            </div>
         </div>
 
         <div class="job-body">
@@ -63,10 +63,10 @@
         <p><strong>Seniority:</strong> <%= job[:Seniority] %></p>
         <p><strong>Employment Type:</strong> <%= job[:Employment_Type] %></p>
         <p><strong>Languages:</strong> <%= job[:Languages] %></p>
-        
+
         <p><strong>Posted on:</strong> <%= @job.created_at %></p>
     </div>
-    
+
     <div class="job-location">
         <p><strong>Country:</strong> <%= @job.country.name %></p>
         <p><strong>Location:</strong> <%= @job.location %></p>
