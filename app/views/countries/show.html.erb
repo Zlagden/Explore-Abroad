@@ -1,8 +1,7 @@
-<% information = eval(@country.information) %>
-
 <div class="container my-5">
   <div class="card shadow-lg border-0">
     <div class="card-body">
+
 
       <h1 class="card-title text-center mb-4"><%= @country.name %></h1>
 
@@ -13,7 +12,7 @@
       <% end %>
 
       <h4 class="mb-3 text-primary">About the country</h4>
-      <p class="mb-4"><%= information[:About] %></p>
+      <p class="mb-4"><%= @country.information["About"] %></p>
 
       <div class="d-flex justify-content-between">
         <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary" %>
