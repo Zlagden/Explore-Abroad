@@ -10,6 +10,7 @@
 
 require 'faker'
 
+JobApplication.destroy_all
 Job.destroy_all
 User.destroy_all
 Country.destroy_all
@@ -76,3 +77,16 @@ for n in 1..20 do
     )
     puts "Seeding job #{n}"
 end
+
+for n in 1..20 do
+    JobApplication.create!(
+        user_id: rand(User.first.id..User.last.id),
+        job_id: rand(Job.first.id..Job.last.id),
+        cv: Faker::File.mime_type,
+        cover_letter: Faker::File.mime_type,
+    )
+    puts "Seeding job_application #{n}"
+end
+
+
+
