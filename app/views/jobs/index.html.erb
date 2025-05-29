@@ -3,14 +3,10 @@
 <div class="job-list">
     <% @jobs.each do |job| %>
         <div class="job-card bg-secondary">
-            <% # "Stringified hash" -> {hash} conversion %>
-            <% job_string = job.description %>
-            <% job_description = eval(job_string) %>
-            
             <p><%= job.job_title %><p>
             <p>Company: <%= job.company_name %></p>
             <p>Location: <%= job.location %></p>
-            <p>Salary: <%= job_description[:Salary] %></p> 
+            <p>Salary: <%= job.description["Salary"] %></p> 
             <p><%= link_to 'View Details', job_path(job), class: 'btn btn-primary' %></p> 
         </div>
     <% end %>

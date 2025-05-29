@@ -1,0 +1,21 @@
+
+.job-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 5px groove red;
+}
+
+
+.job-header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 30%;
+        height: 200px;
+        object-fit: fill;
+    }
+}

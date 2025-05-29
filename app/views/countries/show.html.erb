@@ -1,7 +1,6 @@
-<%information = eval(@country.information)%>
 
 <h1><%= @country.name %></h1>
 <h2>About the country:<h2>
-<h3><%= information[:About]%></h3>
+<h3><%= @country.information["About"]%></h3>
 
 <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-flat" %>
