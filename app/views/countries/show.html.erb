@@ -1,7 +1,24 @@
-<%information = eval(@country.information)%>
+<% information = eval(@country.information) %>
 
-<h1><%= @country.name %></h1>
-<h2>About the country:<h2>
-<h3><%= information[:About]%></h3>
+<div class="container my-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
 
-<%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-flat" %>
+      <h1 class="card-title text-center mb-4"><%= @country.name %></h1>
+
+      <% if @country.image_url.present? %>
+        <div class="text-center mb-4">
+          <img src="<%= @country.image_url %>" alt="<%= @country.name %>" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
+        </div>
+      <% end %>
+
+      <h4 class="mb-3 text-primary">About the country</h4>
+      <p class="mb-4"><%= information[:About] %></p>
+
+      <div class="d-flex justify-content-between">
+        <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary" %>
+        <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
