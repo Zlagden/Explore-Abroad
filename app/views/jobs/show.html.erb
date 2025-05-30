@@ -18,6 +18,7 @@
         <% #job details %>
         <div class="job-body">
 
+
             <div class="job-details col-11 mx-auto bg-white">
                 <% #description card %>
                 <div class="job-description job-detail-card">
@@ -35,11 +36,11 @@
                         <h4>Requirements:</h4>
                     </div>
                     <div class="card-body job-requirement-bottom">
-                        <% @job.requirements.each do |req| %>
+                        <%# @job.requirements.each do |req| %>
                             <ul>
-                                <li><%= req %></li>
+                                <li><%#= req %></li>
                             </ul>
-                        <% end %>
+                        <%# end %>
                     </div>
                 </div>
 
@@ -53,6 +54,7 @@
 
                     <% #Specification content %>
                     <div class="card-body job-specification-bottom">
+
                         <div class="spec-grid row">
                             <% #Salary card %>
                             <div class="job-spec-card col-md">
@@ -72,6 +74,7 @@
                                 <div class="card-sub-sub-body job-specification-sub-bottom">
                                     <p><%= @job.description["Employment_Type"] %></p>
                                 </div>
+
                             </div>
 
                             <% #Field card %>
@@ -153,6 +156,7 @@
                 </div>
             </div>
 
+
             <div class="job-applys col-11 mx-auto my-5 py-5 bg-primary">
                 <div class="btn btn-danger col-12"> Hello </div> 
                 <div class="bg-white py-5">
@@ -165,5 +169,6 @@
                 </div>
             </div> 
         </div>         
+
     </div>
 </div>
