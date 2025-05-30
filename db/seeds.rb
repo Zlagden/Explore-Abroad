@@ -34,8 +34,8 @@ for n in 1..10 do
     puts "Seeding user #{n}"
 end
 
-for n in 1..10 do
-    Country.create!([
+
+Country.create!([
   {
     name: "Japan",
     information: {
@@ -157,8 +157,8 @@ for n in 1..10 do
     latitude: 37.0902
   }
 ])
-    puts "Seeding country #{n}"
-end
+puts "Seeding COUNTRIES"
+
 
 for n in 1..20 do
     Job.create!(
