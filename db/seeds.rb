@@ -92,7 +92,7 @@ end
       Cities: ["Delhi", "Mumbai", "Bangalore"],
       Jobs: ["Information Technology", "Pharmaceuticals", "Textiles"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Gateway_of_India_Mumbai.jpg",
+    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np_CAY_mkgruVA5-bP_mch9E5wgYp_axowCxvEWwZOittCjzb0ycdpWXJ82-CbGaSyARzPGKBF8GqjMYkf4VF3OhYkbjAhgcpEx1-KEzzg9_9LZ4vT8ksg4NF2mDH6gTLR4g2E-=w1080-h624-n-k-no",
     longitude: 78.9629,
     latitude: 20.5937
   },
@@ -104,7 +104,7 @@ end
       Cities: ["Berlin", "Munich", "Frankfurt"],
       Jobs: ["Automotive", "Engineering", "Finance"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Berlin_Skyline_Fernsehturm_2013.jpg",
+    image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSVMTxXdNsIQm9oQ5JPPREFGXQ8ES-5nVfLw_vv9J-bZdMs6vHnZwBnFC8Cq82gI3lPuYIruh6tSsV1c-Fr3Xd0Uyq60ZhL8CPlr1Golw",
     longitude: 10.4515,
     latitude: 51.1657
   },
@@ -116,7 +116,7 @@ end
       Cities: ["Sydney", "Melbourne", "Brisbane"],
       Jobs: ["Mining", "Education", "Tourism"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Sydney_skyline_from_the_north-east_-_Dec_2008.jpg",
+    image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT-sVcZhh2HQhATZHOx0eAeJ3Q_q6THgxRZkqKupL2ltWDjof8Gsk_nKqyj-Z0Q9bNxwtElkVeJDRt1cPqElHteAo8Ask8Pg6cKF58uzA",
     longitude: 133.7751,
     latitude: -25.2744
   },
@@ -128,7 +128,7 @@ end
       Cities: ["Rome", "Florence", "Milan"],
       Jobs: ["Fashion", "Tourism", "Manufacturing"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Rome_Montage_2017.png",
+    image_url: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQxb7Gx_z_uyF9yger2ahCbt4upYJGM0D2BozCtTfPWUTU7EWSy7_wqJpgIwPETmihCed6l2auzxnVtIDZzgnPqn93jc4OnQm7hRSH4eQ",
     longitude: 12.5674,
     latitude: 41.8719
   },
@@ -140,7 +140,7 @@ end
       Cities: ["Johannesburg", "Cape Town", "Durban"],
       Jobs: ["Mining", "Tourism", "Agriculture"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/4/43/Cape_Town_Montage_2015.png",
+    image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSlgF2dXC-_gxqDDA0thQ1PVX669-lhsohZXSnQCqBWhOGF4wuRuG6_0nUtJOWbnCKYWNAFXlgTwp_rB6vNYCn_Ki_T3NCRgWADL_NoNA",
     longitude: 22.9375,
     latitude: -30.5595
   },
@@ -152,7 +152,7 @@ end
       Cities: ["New York", "Los Angeles", "Chicago"],
       Jobs: ["Technology", "Finance", "Entertainment"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Times_Square%2C_New_York_City_%28HDR%29.jpg",
+    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOESC84bwsx3d2uOWgYvpN8OomrXZ6E9vrHQ&s",
     longitude: -95.7129,
     latitude: 37.0902
   }
