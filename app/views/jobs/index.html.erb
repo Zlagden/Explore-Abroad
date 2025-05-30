@@ -13,6 +13,7 @@
 
 <div class="job-list" style="margin-top:3rem;">
   <h2><%= @country.name %>: jobs</h2>
+
     <% @jobs.each do |job| %>
         <div class="job-card ">
             <p><%= job.job_title %><p>
