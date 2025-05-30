@@ -15,6 +15,14 @@ Job.destroy_all
 User.destroy_all
 Country.destroy_all
 
+dummy_user = User.new(
+    email: "tester@gmail.com",
+    password: "123456",
+    nationality: Faker::Nation.nationality,
+    date_of_birth: Faker::Date.between(from: '1950-01-01', to: '2010-01-01'),   
+)
+dummy_user.save
+puts "Created Dummy User /email: #{dummy_user[:email]}/, /password: 123456 /"
 
 for n in 1..10 do
     User.create!(

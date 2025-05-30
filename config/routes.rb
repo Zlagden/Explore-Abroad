@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :countries, only: [:index, :show] do
     resources :jobs, only: [:index]
   end
-  resources :jobs, only: [:show] do
+  resources :jobs, only: [:index, :show] do
     resources :job_applications, only: [:create]
   end
 
