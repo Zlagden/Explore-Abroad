@@ -10,7 +10,7 @@
     style = " width: 100%; height: 50vh">
 
   </div>
-<h2><%= @country.name %>: Job Index</h2>
+<h2><%= @country&.name %>: Job Index</h2>
 
 <div class="job-list">
     <% @jobs.each do |job| %>
@@ -18,8 +18,8 @@
             <p><%= job.job_title %><p>
             <p>Company: <%= job.company_name %></p>
             <p>Location: <%= job.location %></p>
-            <p>Salary: <%= job.description["Salary"] %></p> 
-            <p><%= link_to 'View Details', job_path(job), class: 'btn btn-primary' %></p> 
+            <p>Salary: <%= job.description["Salary"] %></p>
+            <p><%= link_to 'View Details', job_path(job), class: 'btn btn-primary' %></p>
         </div>
     <% end %>
 </div>
