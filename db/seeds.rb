@@ -80,7 +80,7 @@ end
       Cities: ["Toronto", "Vancouver", "Montreal"],
       Jobs: ["Technology", "Energy", "Healthcare"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Toronto_-_ON_-_Toronto_Skyline2.jpg",
+    image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRCZs9tDtSpJP2hifq1WJJ4ABSV9BHB0JP_NjfbEGGkJKzQwTp-arDdFljbCZcEnxVBKt2qlXFzp3SKCiUKoVcHAnnvfSICEMkUsb8W1g",
     longitude: -106.3468,
     latitude: 56.1304
   },
