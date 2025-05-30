@@ -8,6 +8,7 @@ class JobsController < ApplicationController
       @jobs = Job.all
     end
 
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @jobs.geocoded.map do |job|
       {
@@ -21,5 +22,6 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @job_application = JobApplication.new
+    
   end
 end
