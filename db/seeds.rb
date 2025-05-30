@@ -44,7 +44,7 @@ end
       Cities: ["Tokyo", "Kyoto", "Osaka"],
       Jobs: ["Technology", "Automotive", "Tourism"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Tokyo_Montage_2015.jpg",
+    image_url: "https://d1shf7n3qgesaf.cloudfront.net/wp-content/uploads/20240521155503/BALCountryOverview_Japan.webp",
     longitude: 138.2529,
     latitude: 36.2048
   },
