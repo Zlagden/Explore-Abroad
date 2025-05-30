@@ -68,7 +68,7 @@ end
       Cities: ["São Paulo", "Rio de Janeiro", "Brasília"],
       Jobs: ["Agriculture", "Mining", "Tourism"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Rio_de_Janeiro_City.jpg",
+    image_url: "https://delivery.gfobcontent.com/api/public/content/b5b22ce1ceb5489682db98d8186c4f73?v=40928581",
     longitude: -51.9253,
     latitude: -14.2350
   },
