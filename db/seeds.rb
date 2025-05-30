@@ -56,7 +56,7 @@ end
       Cities: ["Paris", "Lyon", "Marseille"],
       Jobs: ["Fashion", "Aerospace", "Tourism"]
     },
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/a/af/Paris_vue_d%27ensemble_tour_Eiffel.jpg",
+    image_url: "https://www.frenchclass.in/wp-content/uploads/2024/01/cities-in-france-paris-laforet.webp",
     longitude: 2.2137,
     latitude: 46.2276
   },
