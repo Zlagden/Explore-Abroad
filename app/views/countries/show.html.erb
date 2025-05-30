@@ -1,14 +1,23 @@
-<h1><%= @country.name %></h1>
+<div class="container my-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
 
-<hr>
 
-<h2>Other Countries</h2>
-<ul>
-  <% @countries.each do |country| %>
-    <li>
-      <%= link_to country.name, country_path(country) %>
-    </li>
-  <% end %>
-</ul>
+      <h1 class="card-title text-center mb-4"><%= @country.name %></h1>
 
-<%= link_to 'Back to Index', countries_path %>
+      <% if @country.image_url.present? %>
+        <div class="text-center mb-4">
+          <img src="<%= @country.image_url %>" alt="<%= @country.name %>" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
+        </div>
+      <% end %>
+
+      <h4 class="mb-3 text-primary">About the country</h4>
+      <p class="mb-4"><%= @country.information["About"] %></p>
+
+      <div class="d-flex justify-content-between">
+        <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary" %>
+        <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

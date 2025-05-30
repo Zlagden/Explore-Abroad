@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   def index
-    @jobs = Job.all
+    @country = Country.find(params[:country_id])
+    @jobs = Job.where(country_id: params[:country_id])
+    
     # The `geocoded` scope filters only flats with coordinates
     @markers = @jobs.geocoded.map do |job|
       {

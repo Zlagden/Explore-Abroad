@@ -10,10 +10,19 @@
 
 require 'faker'
 
+JobApplication.destroy_all
 Job.destroy_all
 User.destroy_all
 Country.destroy_all
 
+dummy_user = User.new(
+    email: "tester@gmail.com",
+    password: "123456",
+    nationality: Faker::Nation.nationality,
+    date_of_birth: Faker::Date.between(from: '1950-01-01', to: '2010-01-01'),   
+)
+dummy_user.save
+puts "Created Dummy User /email: #{dummy_user[:email]}/, /password: 123456 /"
 
 for n in 1..10 do
     User.create!(
@@ -53,6 +62,7 @@ for n in 1..20 do
     Job.create!(
         company_name: Faker::Company.name,
         description: {
+            Salary: "£" + Faker::Number.between(from: 30000, to: 120000).to_s,
             Field: Faker::Job.field,
             Postion: Faker::Job.position,
             Seniority: Faker::Job.seniority,
@@ -61,7 +71,12 @@ for n in 1..20 do
             Country: Faker::Address.country,
             Description: Faker::Lorem.paragraph(sentence_count: 5),
             },
-        requirements: Faker::Job.key_skill,
+        requirements: [
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            Faker::Job.key_skill,
+            ],
         location: Faker::Address.city,
         job_title: Faker::Job.title,
         country_id: rand(Country.first.id..Country.last.id),
@@ -70,3 +85,16 @@ for n in 1..20 do
     )
     puts "Seeding job #{n}"
 end
+
+for n in 1..20 do
+    JobApplication.create!(
+        user_id: rand(User.first.id..User.last.id),
+        job_id: rand(Job.first.id..Job.last.id),
+        cv: Faker::File.mime_type,
+        cover_letter: Faker::File.mime_type,
+    )
+    puts "Seeding job_application #{n}"
+end
+
+
+
