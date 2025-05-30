@@ -1,5 +1,4 @@
 class JobApplicationsController < ApplicationController
-
     def create
         @job_application = JobApplication.new(job_app_params)
         @job = Job.find(params[:job_id])
@@ -8,7 +7,7 @@ class JobApplicationsController < ApplicationController
 
 
         if @job_application.save
-            redirect_to countries_path
+            redirect_to my_applications_job_applications_path
         else
             render "jobs/show", status: :unprocessable_entity
         end
