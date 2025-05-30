@@ -14,9 +14,15 @@ class JobApplicationsController < ApplicationController
         end
     end
 
+    def my_applications
+        @job_applications = current_user.job_applications
+
+    end
+
     private 
 
     def job_app_params
         params.require(:job_application).permit(:cv, :cover_letter)
     end
+
 end
