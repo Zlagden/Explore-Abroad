@@ -1,5 +1,5 @@
 <div class="job-container col-12 mx-auto l-100 bg-secondary">
-    
+
 
     <% #description %>
     <div class="job-details">
@@ -13,13 +13,13 @@
                 <img class="m-0" src="https://static.vecteezy.com/system/resources/previews/006/948/451/large_2x/digital-marketing-concept-with-people-putting-content-images-marketing-to-the-web-dashboard-screen-search-engine-optimization-promotion-working-process-and-teamwork-flat-style-illustration-vector.jpg">
                 <img class="m-0" src="https://static.vecteezy.com/system/resources/previews/002/346/322/large_2x/online-programming-course-flat-concept-illustration-vector.jpg">
                 <img class="m-0" src="https://www.shutterstock.com/shutterstock/photos/586367912/display_1500/stock-vector-computer-code-debugging-concept-flat-style-illustration-586367912.jpg">
-            </div> 
+            </div>
         </div>
 
         <% #job details %>
         <div class="job-body">
 
-            
+
             <div class="job-details col-11 mx-auto bg-white">
                 <% #description card %>
                 <div class="job-description job-detail-card">
@@ -37,11 +37,11 @@
                         <h4>Requirements:</h4>
                     </div>
                     <div class="card-body job-requirement-bottom">
-                        <% @job.requirements.each do |req| %>
+                        <%# @job.requirements.each do |req| %>
                             <ul>
-                                <li><%= req %></li>
+                                <li><%#= req %></li>
                             </ul>
-                        <% end %>
+                        <%# end %>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                                 <p><%= @job.description["Salary"] %></p>
                             </div>
                         </div>
-                        
+
                         <% #Employment_type card %>
                         <div class="job-spec-card">
                             <div class="card-sub-sub-title job-specification-sub-top">
@@ -116,14 +116,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <% #Location card %>
                 <div class="job-location job-detail-card">
                     <% #location title %>
                     <div class="card-sub-title job-location-top">
                         <h4>Location:</h4>
                     </div>
-                    
+
                     <% #location body %>
                     <div class="card-body job-location-bottom">
                         <% #conuntry card %>
@@ -146,8 +146,8 @@
                         </div>
                     </div>
 
-                </div> 
+                </div>
             </div>
-        </div>         
+        </div>
     </div>
 </div>

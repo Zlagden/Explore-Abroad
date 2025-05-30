@@ -6,20 +6,20 @@
     id="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    style = " width: 100%; height: 50vh">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
   </div>
-<h2><%= @country.name %>: Job Index</h2>
 
-<div class="job-list">
+
+<div class="job-list" style="margin-top:3rem;">
+  <h2><%= @country.name %>: jobs</h2>
     <% @jobs.each do |job| %>
-        <div class="job-card bg-secondary">
+        <div class="job-card ">
             <p><%= job.job_title %><p>
             <p>Company: <%= job.company_name %></p>
             <p>Location: <%= job.location %></p>
-            <p>Salary: <%= job.description["Salary"] %></p> 
-            <p><%= link_to 'View Details', job_path(job), class: 'btn btn-primary' %></p> 
+            <p>Salary: <%= job.description["Salary"] %></p>
+            <p><%= link_to 'View Details', country_job_path(@country,job), class: 'btn' %></p>
         </div>
     <% end %>
 </div>
