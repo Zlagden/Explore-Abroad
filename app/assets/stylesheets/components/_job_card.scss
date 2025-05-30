@@ -27,8 +27,6 @@
 
 
 .job-detail-card {
-
-
     padding: 16px;
     p {
         margin: 0px;
@@ -53,6 +51,11 @@
         padding: 10px 25px;
         
     }
+}
+
+.card-specification-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 
