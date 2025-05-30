@@ -34,7 +34,7 @@ for n in 1..10 do
     puts "Seeding user #{n}"
 end
 
-for n in 1..10 do
+
     Country.create!([
   {
     name: "Japan",
