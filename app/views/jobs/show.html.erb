@@ -74,7 +74,6 @@
                                 <div class="card-sub-sub-body job-specification-sub-bottom">
                                     <p><%= @job.description["Employment_Type"] %></p>
                                 </div>
-
                             </div>
 
                             <% #Field card %>
@@ -150,21 +149,19 @@
                             </div>
                         </div>
                         <div class="col-md"></div>
-                        
                     </div>
-
                 </div>
             </div>
 
-
+            
             <div class="job-applys col-11 mx-auto my-5 py-5 bg-primary">
                 <div class="btn btn-danger col-12"> Hello </div> 
                 <div class="bg-white py-5">
                     <h3> Apply to job </h3>
                     <%= simple_form_for [@job, @job_application] do |f| %>
-                    <%= f.input :cv %>
-                    <%= f.input :cover_letter %>
-                    <%= f.submit "Submit Application", class: "btn btn-primary" %>
+                        <%= f.input :cv %>
+                        <%= f.input :cover_letter %>
+                        <%= f.submit "Submit Application", class: "btn btn-primary" %>
                     <% end %>
                 </div>
             </div> 

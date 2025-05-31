@@ -20,7 +20,7 @@
             <p>Company: <%= job.company_name %></p>
             <p>Location: <%= job.location %></p>
             <p>Salary: <%= job.description["Salary"] %></p>
-            <p><%= link_to 'View Details', country_job_path(@country,job), class: 'btn' %></p>
+            <p><%= link_to 'View Details', job_path(job), class: 'btn' %></p>
         </div>
     <% end %>
 </div>
