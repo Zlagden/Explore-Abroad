@@ -159,7 +159,6 @@ Country.create!([
 ])
 puts "Seeding COUNTRIES"
 
-
 for n in 1..20 do
     Job.create!(
         company_name: Faker::Company.name,
