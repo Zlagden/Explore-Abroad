@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_132801) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
-    t.text "information"
+    t.json "information"
     t.string "image_url"
     t.float "longitude"
     t.float "latitude"
@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_132801) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "company_name", null: false
-    t.text "description"
-    t.text "requirements"
+    t.json "description"
+    t.string "requirements", array: true
     t.string "location"
     t.string "job_title"
     t.bigint "country_id", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_132801) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nationality", null: false
-    t.date "date_of_birth", null: false
+    t.string "nationality"
+    t.date "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
