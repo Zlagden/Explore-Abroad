@@ -11,12 +11,24 @@
         </div>
       <% end %>
 
-      <h4 class="mb-3 text-primary">About the country</h4>
+      <%# <h4 class="mb-3 text-primary">About the country</h4> %>
+      <h4> Country and it's Culture</h4>
       <p class="mb-4"><%= @country.information["About"] %></p>
+      <p class="mb-4"><%= @country.information["Culture"] %></p>
+      <p class="mb-4"><%= @country.information["Cities"] %></p>
+      <p class="mb-4"><%= @country.information["Jobs"] %></p>
+      <h4>Visa</h4>
+      <p class="mb-4"><%= @country.information["VISA"] %></p>
+
+    <% @country.information["Highlights"].each do |highlight| %>
+      <h4><%= highlight["title"] %></h3>
+      <p><%= highlight["description"] %></p>
+    <% end %>
+
 
       <div class="d-flex justify-content-between">
         <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary" %>
-        <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-primary" %>
+        <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-warning" %>
       </div>
     </div>
   </div>
