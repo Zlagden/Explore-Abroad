@@ -219,11 +219,11 @@ Country.create!([
 ])
 puts "Seeding COUNTRIES"
 
-for n in 1..20 do
+for n in 1..100 do
     Job.create!(
         company_name: Faker::Company.name,
         description: {
-            Salary: "£" + Faker::Number.between(from: 30000, to: 120000).to_s,
+            Salary: Faker::Number.between(from: 30000, to: 120000).to_i,
             Field: Faker::Job.field,
             Postion: Faker::Job.position,
             Seniority: Faker::Job.seniority,
@@ -241,8 +241,8 @@ for n in 1..20 do
         location: Faker::Address.city,
         job_title: Faker::Job.title,
         country_id: rand(Country.first.id..Country.last.id),
-        longitude: Faker::Number.normal(mean: 0, standard_deviation: 180).round(4),
-        latitude: Faker::Number.normal(mean: 0, standard_deviation: 90).round(4),
+        longitude: Faker::Number.between(from: -180.0, to: 180.0).round(4),
+        latitude: Faker::Number.between(from: -90.0, to: 90.0).round(4),
     )
     puts "Seeding job #{n}"
 end

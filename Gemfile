@@ -55,6 +55,8 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "ostruct"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem 'pg_search'
+
 
 group :development, :test do
   gem "dotenv-rails"

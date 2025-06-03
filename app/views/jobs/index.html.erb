@@ -1,26 +1,160 @@
-
-<div class= "contentmap">
-  <h1> Create the ultimate job pathway for your travels</h1>
-</div>
-  <div data-controller="map"
-    id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
-  </div>
-
-
-<div class="job-list" style="margin-top:3rem;">
-  <h2><%= @country.name %>: jobs</h2>
-
-    <% @jobs.each do |job| %>
-        <div class="job-card ">
-            <p><%= job.job_title %><p>
-            <p>Company: <%= job.company_name %></p>
-            <p>Location: <%= job.location %></p>
-            <p>Salary: <%= job.description["Salary"] %></p>
-            <p><%= link_to 'View Details', job_path(job), class: 'btn' %></p>
+<div class= "job-index-container">
+    <div class="job-index-title">
+        <div class= "contentmap">
+            <h1> Create the ultimate job pathway for your travels</h1>
         </div>
-    <% end %>
-</div>
+    </div>
+
+    <div class="job-index-map">
+        <div data-controller="map"
+            id="map"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+    </div>
+
+    <div class="job-index-list col-12 d-flex" style="margin-top:3rem;">
+        <div class="job-list-filter col-3 mx-auto py-3 bg-secondary">
+            <div class="col-11 mx-auto">
+                <%= form_with url: @country ? country_jobs_path(@country) : jobs_path, method: :get, class: "d-flex-column" do |form|%>
+                    <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control",
+                        placeholder: "Search Jobs"
+                    %>
+                    <div class="filter-salary bg-white my-2 p-3" data-controller="toggle">
+                        <div class="filter-title ">
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#switch"> Salary: </h4>
+                        </div>
+
+                        <div class="filter-body" data-toggle-target="filterBox">
+                            <div class="salary-checkbox">
+                                <input type="checkbox" value="30000-50000" name="salary" id="salary">
+                                <label for="salary"> $30,000 - $50,000 </label>
+                            </div>
+                            <div class="salary-checkbox">
+                                <input type="checkbox" value="50001-70000" name="salary" id="salary">
+                                <label for="salary"> $50,001 - $70,000 </label>
+                            </div>
+                            <div class="salary-checkbox">
+                                <input type="checkbox" value="70001-90000" name="salary" id="salary">
+                                <label for="salary"> $70,001 - $90,000 </label>
+                            </div>
+                            <div class="salary-checkbox">
+                                <input type="checkbox" value="90001-110000" name="salary" id="salary">
+                                <label for="salary"> $90,001 - $110,000 </label>
+                            </div>
+                            <div class="salary-checkbox">
+                                <input type="checkbox" value="110001-130000" name="salary" id="salary">
+                                <label for="salary"> $110,001 - $130,000 </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-field bg-white my-2 p-3">
+                        <div class="filter-title">
+                            <h4 class="bg-secondary px-2 py-1"> Field: </h4>
+                        </div>
+
+                        <div class="filter-body">
+                            <% field_array = [] %>
+                            <% @jobs.each do |j| %>
+                                <% field_array.push(j.description["Field"]) %>
+                            <% end %>
+
+                            <% field_array.uniq.sort.each do |field| %>
+                                <div class="employment-type-checkbox">
+                                    <input type="checkbox" value=<%= "#{field}" %> name="field" id="field">
+                                    <label for="field"><%= field %></label>
+                                </div>
+                            <% end %>
+                        </div>
+                        
+                    </div>
+
+                    <div class="filter-position bg-white my-2 p-3">
+                        <div class="filter-title">
+                            <h4 class="bg-secondary px-2 py-1"> Position: </h4>
+                        </div>
+
+                        <div class="filter-body">
+                            <% position_array = [] %>
+                            <% @jobs.each do |j| %>
+                                <% position_array.push(j.description["Postion"]) %>
+                            <% end %>
+ 
+                            <% position_array.uniq.sort.each do |position| %>
+                                <div class="employment-type-checkbox">
+                                    <input type="checkbox" value=<%= "#{position}" %> name="position" id="position">
+                                    <label for="position"><%= position %></label>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-seniority bg-white my-2 p-3">
+                        <div class="filter-title">
+                            <h4 class="bg-secondary px-2 py-1"> Seniority: </h4>
+                        </div>
+
+                        <div class="filter-body">
+                            <% seniority_array = [] %>
+                            <% @jobs.each do |j| %>
+                                <% seniority_array.push(j.description["Seniority"]) %>
+                            <% end %>
+
+                            <% seniority_array.uniq.sort.each do |senior| %>
+                                <div class="employment-type-checkbox">
+                                    <input type="checkbox" value=<%= "#{senior}" %> name="seniority" id="seniority">
+                                    <label for="seniority"><%= senior %></label>
+                                </div>
+                            <% end %>
+                        </div>
+
+                    </div>
+                    
+                    <div class="filter-employment_type bg-white my-2 p-3">
+                        <div class="filter-title">
+                            <h4 class="bg-secondary px-2 py-1"> Employment Type: </h4>
+                        </div>
+
+                        <div class="filter-body">
+                            <% employ_array = [] %>
+
+                            <% @jobs.each do |j| %>
+                                <% employ_array.push(j.description["Employment_Type"]) %>
+                            <% end %>
+                            
+                            <% employ_array.uniq.sort.each do |employ| %>
+                                <div class="employment-type-checkbox">
+                                    <input type="checkbox" value= <%= "#{employ}" %> name="employment_type" id="employment_type">
+                                    <label for="employment_type"><%= employ %></label>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+
+                    <%= submit_tag "Search", name: "", class: "col-12 btn btn-primary" %>
+                <% end %>
+ 
+            </div>
+        </div>
+
+        <div class="job-list-content col-8 mx-auto bg-primary">
+            <h2 class="p-3"><%= @country.name if @country %> Jobs </h2>
+
+            <% @jobs.each do |job| %>
+                <div class="job-card ">
+                    <p><%= job.job_title %><p>
+                    <p>Company: <%= job.company_name %></p>
+                    <p>Location: <%= job.location %></p>
+                    <p>Salary: <%= "$#{job.description["Salary"]} " %></p>
+                    <p>Seniority: <%= job.description["Seniority"] %></p>
+                    <p>Field: <%= job.description["Field"] %></p>
+                    <p>Employment Type: <%= job.description["Employment_Type"] %></p>
+                    <p><%= link_to 'View Details', job_path(job), class: 'btn' %></p>
+                </div>
+            <% end %>
+        </div>
+    </div>
