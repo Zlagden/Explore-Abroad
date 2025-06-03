@@ -8,7 +8,8 @@ export default class extends Controller {
     console.log("Check checking checkers")
   }
 
-  switch() {
-    this.filterBox.classList.toggle("d-none");
+  showFilter() {
+    console.log("Verify Verifying Verifiers")
+    this.filterBoxTarget.classList.toggle("d-none");
   }
 }

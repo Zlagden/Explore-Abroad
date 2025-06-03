@@ -25,10 +25,10 @@
                     %>
                     <div class="filter-salary bg-white my-2 p-3" data-controller="toggle">
                         <div class="filter-title ">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#switch"> Salary: </h4>
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Salary: </h4>
                         </div>
 
-                        <div class="filter-body" data-toggle-target="filterBox">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <div class="salary-checkbox">
                                 <input type="checkbox" value="30000-50000" name="salary" id="salary">
                                 <label for="salary"> $30,000 - $50,000 </label>
@@ -52,12 +52,12 @@
                         </div>
                     </div>
 
-                    <div class="filter-field bg-white my-2 p-3">
+                    <div class="filter-field bg-white my-2 p-3" data-controller="toggle">
                         <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Field: </h4>
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Field: </h4>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% field_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% field_array.push(j.description["Field"]) %>
@@ -73,12 +73,12 @@
                         
                     </div>
 
-                    <div class="filter-position bg-white my-2 p-3">
+                    <div class="filter-position bg-white my-2 p-3" data-controller="toggle">
                         <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Position: </h4>
+                            <h4 class=" btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Position: </h4>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% position_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% position_array.push(j.description["Postion"]) %>
@@ -93,12 +93,12 @@
                         </div>
                     </div>
                     
-                    <div class="filter-seniority bg-white my-2 p-3">
+                    <div class="filter-seniority bg-white my-2 p-3" data-controller="toggle">
                         <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Seniority: </h4>
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Seniority: </h4>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% seniority_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% seniority_array.push(j.description["Seniority"]) %>
@@ -114,12 +114,12 @@
 
                     </div>
                     
-                    <div class="filter-employment_type bg-white my-2 p-3">
+                    <div class="filter-employment_type bg-white my-2 p-3" data-controller="toggle">
                         <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Employment Type: </h4>
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Employment Type: </h4>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% employ_array = [] %>
 
                             <% @jobs.each do |j| %>
@@ -134,8 +134,11 @@
                             <% end %>
                         </div>
                     </div>
-
-                    <%= submit_tag "Search", name: "", class: "col-12 btn btn-primary" %>
+                    <div class="sumbit-clear">
+                        <% back = @country ? country_jobs_path : jobs_path %>
+                        <%= link_to "Clear", back, class: "col-5 btn btn-primary" %>
+                        <%= submit_tag "Search", name: "", class: "col-5 btn btn-primary" %>
+                    </div>
                 <% end %>
  
             </div>
