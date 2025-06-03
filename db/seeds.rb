@@ -181,8 +181,8 @@ for n in 1..100 do
         location: Faker::Address.city,
         job_title: Faker::Job.title,
         country_id: rand(Country.first.id..Country.first.id),
-        longitude: Faker::Number.normal(mean: 0, standard_deviation: 180).round(4),
-        latitude: Faker::Number.normal(mean: 0, standard_deviation: 90).round(4),
+        longitude: Faker::Number.between(from: -180.0, to: 180.0).round(4),
+        latitude: Faker::Number.between(from: -90.0, to: 90.0).round(4),
     )
     puts "Seeding job #{n}"
 end

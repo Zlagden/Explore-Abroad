@@ -23,12 +23,12 @@
                         class: "form-control",
                         placeholder: "Search Jobs"
                     %>
-                    <div class="filter-salary bg-white my-2 p-3">
-                        <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Salary: </h4>
+                    <div class="filter-salary bg-white my-2 p-3" data-controller="toggle">
+                        <div class="filter-title ">
+                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#switch"> Salary: </h4>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body" data-toggle-target="filterBox">
                             <div class="salary-checkbox">
                                 <input type="checkbox" value="30000-50000" name="salary" id="salary">
                                 <label for="salary"> $30,000 - $50,000 </label>
