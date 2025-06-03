@@ -1,29 +1,60 @@
-<div class="container my-5">
-  <div class="card shadow-lg border-0">
+<div class="container my-10 px-4">
+  <div class="card shadow-lg border-0 p-8 rounded-xl bg-white/90">
     <div class="card-body">
 
 
-      <h1 class="card-title text-center mb-4"><%= @country.name %></h1>
+      <h1 class="text-center text-4xl font-bold mb-6 text-gray-800"><%= @country.name %></h1>
 
       <% if @country.image_url.present? %>
-        <div class="text-center mb-4">
-          <img src="<%= @country.image_url %>" alt="<%= @country.name %>" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
+        <div class="text-center mb-8 col-12">
+          <img src="<%= @country.image_url %>" alt="<%= @country.name %>" class="img-fluid rounded shadow-sm country-img" style="max-height: 300px;">
         </div>
       <% end %>
 
       <%# <h4 class="mb-3 text-primary">About the country</h4> %>
-      <h4> Country and it's Culture</h4>
-      <p class="mb-4"><%= @country.information["About"] %></p>
-      <p class="mb-4"><%= @country.information["Culture"] %></p>
-      <p class="mb-4"><%= @country.information["Cities"] %></p>
-      <p class="mb-4"><%= @country.information["Jobs"] %></p>
-      <h4>Visa</h4>
-      <p class="mb-4"><%= @country.information["VISA"] %></p>
+      <div class="row py-5">
+        <div class="w-50">
+          <h4> Country and it's Culture</h4>
+          <p class="mb-4"><%= @country.information["About"] %></p>
+          <p class="mb-4"><%= @country.information["Culture"] %></p>
+          <img src="https://images.unsplash.com/photo-1543906965-f9520aa2ed8a?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VsdHVyZXxlbnwwfDB8MHx8fDA%3D" class="culture-class pt-3" alt="">
+        </div>
+        <div class="w-50">
+          <h4>Cities</h4>
+          <img src="https://images.unsplash.com/photo-1658077907668-9fe9a19050bb?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNpdGllc3xlbnwwfDB8MHx8fDA%3D" alt="cities" class="visa-image pb-3">
+          <p class="pt-5"><%= @country.information["Cities"] %></p>
+        </div>
+      </div>
 
+      <div class="row py-5">
+        <div class="w-50">
+          <h4>Jobs</h4>
+          <p class="mb-4"><%= @country.information["Jobs"] %></p>
+          <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGpvYnN8ZW58MHwwfDB8fHww" class="jobs-image alt="jobs">
+        </div>
+        <div class="w-50">
+          <img src="https://images.unsplash.com/photo-1581656702382-9ae90e68e7b7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHZpc2ElMjBwcm9jZXNzfGVufDB8MHwwfHx8MA%3D%3D" class="visa-image pb-4" >
+          <h4>Visa</h4>
+          <p class="mb-4"><%= @country.information["VISA"] %></p>
+        </div>
+      </div>
+
+
+    <h4>Highlights:</h4>
+   <div class="row py-5">
     <% @country.information["Highlights"].each do |highlight| %>
-      <h4><%= highlight["title"] %></h3>
-      <p><%= highlight["description"] %></p>
+    <div class="w-50">
+    <div class="card-product card-product-bigger">
+      <div class="card-product-infos">
+        <h6><strong><%= highlight["title"] %></strong></h6>
+        <p><%= highlight["description"] %></p>
+      </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqawjwE3TPBEvtIW-FJYT1rSFGgf1vB7b8aw&s"/>
+    </div>
+    </div>
     <% end %>
+    </div>
+
 
 
       <div class="d-flex justify-content-between">
