@@ -62,7 +62,7 @@
                                     <p>Salary:<p>
                                 </div>
                                 <div class="card-sub-sub-body job-specification-sub-bottom">
-                                    <p><%= @job.description["Salary"] %></p>
+                                    <p><%= "$#{@job.description["Salary"]}" %></p>
                                 </div>
                             </div>
                             
@@ -156,13 +156,16 @@
             
             <div class="job-applys col-11 mx-auto my-5 py-5 bg-primary">
                 <div class="btn btn-danger col-12"> Hello </div> 
-                <div class="bg-white py-5">
-                    <h3> Apply to job </h3>
-                    <%= simple_form_for [@job, @job_application] do |f| %>
-                        <%= f.input :cv %>
-                        <%= f.input :cover_letter %>
-                        <%= f.submit "Submit Application", class: "btn btn-primary" %>
-                    <% end %>
+                <div class="submit-box bg-white m-0 p-2">
+                    <div class="submit-title"><h3 class="m-0 p-2"> Application </h3></div>
+
+                    <div class="submit-body">
+                        <%= simple_form_for [@job, @job_application] do |f| %>
+                            <%= f.input :cv  %>
+                            <%= f.input :cover_letter %>
+                            <%= f.submit "Submit Application", class: "btn btn-primary" %>
+                        <% end %>
+                    </div>
                 </div>
             </div> 
         </div>         
