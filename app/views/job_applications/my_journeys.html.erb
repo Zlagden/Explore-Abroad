@@ -1,16 +1,11 @@
 
-<div class= "job-index-container">
-    <div class="job-index-title">
-        <div class= "contentmap">
-            <h1>My Journeys</h1>
-        </div>
-    </div>
+<h1>My Journeys</h1>
 
-    <div class="job-index-map">
-        <div data-controller="map"
-            id="map"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-    </div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map2"
+  id=map2
+  data-map2-markers-value="<%= @markers.to_json %>"
+  data-map2-api-key-value="<%= ENV['MAPBOX_API_KEY_2'] %>"></div>
+
+  <button id="pause">Pause</button>
