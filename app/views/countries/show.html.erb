@@ -58,8 +58,8 @@
 
 
       <div class="d-flex justify-content-between">
-        <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary" %>
-        <%= link_to "Jobs", country_jobs_path(@country), class: "btn btn-warning" %>
+        <%= link_to "Back to All Countries", countries_path, class: "btn btn-outline-secondary btn-lg" %>
+        <%= link_to "Explore Jobs in #{@country.name} ➡️", country_jobs_path(@country), class: "btn btn-warning btn-lg" %>
       </div>
     </div>
   </div>
