@@ -15,17 +15,32 @@
     </div>
 
     <div class="job-index-list col-12 d-flex" style="margin-top:3rem;">
-        <div class="job-list-filter col-3 mx-auto py-3 bg-secondary">
+        <div class="job-list-filter col-3 mx-auto py-3 bg-white">
             <div class="col-11 mx-auto">
                 <%= form_with url: @country ? country_jobs_path(@country) : jobs_path, method: :get, class: "d-flex-column" do |form|%>
-                    <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Search Jobs"
-                    %>
-                    <div class="filter-salary bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title ">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Salary: </h4>
+                    <div class="job-search-bar pb-3 px-1">
+                        <div class="search-title d-flex">
+                            <i class="fa-solid fa-magnifying-glass mx-auto my-auto"></i>
+                            <h4 class="my-auto"> Job Finder </h4>
+                        </div>
+                        <div class="search-field py-3 mx-auto my-auto">
+                            <%= text_field_tag :query,
+                                params[:query],
+                                class: "form-control",
+                                placeholder: "Search Jobs"
+                            %>
+                        </div>
+                    </div>
+
+                    <div class="filter-salary sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto"> Salary: </h5>
+                            </div>
+                            <div class="caret-box my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
                         <div class="filter-body d-none" data-toggle-target="filterBox">
@@ -52,9 +67,15 @@
                         </div>
                     </div>
 
-                    <div class="filter-field bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Field: </h4>
+                    <div class="filter-field sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Field: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
                         <div class="filter-body d-none" data-toggle-target="filterBox">
@@ -73,9 +94,15 @@
                         
                     </div>
 
-                    <div class="filter-position bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title">
-                            <h4 class=" btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Position: </h4>
+                    <div class="filter-position sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Position: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
                         <div class="filter-body d-none" data-toggle-target="filterBox">
@@ -93,9 +120,15 @@
                         </div>
                     </div>
                     
-                    <div class="filter-seniority bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Seniority: </h4>
+                    <div class="filter-seniority sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Seniority: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
                         <div class="filter-body d-none" data-toggle-target="filterBox">
@@ -114,9 +147,15 @@
 
                     </div>
                     
-                    <div class="filter-employment_type bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#showFilter"> Employment Type: </h4>
+                    <div class="filter-employment_type sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Employment: </h5>
+                            </div>
+                            <div class="caret-box my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
                         <div class="filter-body d-none" data-toggle-target="filterBox">
@@ -134,10 +173,12 @@
                             <% end %>
                         </div>
                     </div>
-                    <div class="sumbit-clear">
+                    
+                    
+                    <div class="search-clear py-4">
                         <% back = @country ? country_jobs_path : jobs_path %>
-                        <%= link_to "Clear", back, class: "col-5 btn btn-primary" %>
-                        <%= submit_tag "Search", name: "", class: "col-5 btn btn-primary" %>
+                        <%= link_to "Clear", back, class: "search-clear-box sc-left py-4 btn btn-primary" %>
+                        <%= submit_tag "Search", name: "", class: "search-clear-box sc-right py-4 btn btn-primary" %>
                     </div>
                 <% end %>
  
