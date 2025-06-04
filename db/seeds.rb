@@ -219,7 +219,60 @@ Country.create!([
 ])
 puts "Seeding COUNTRIES"
 
+country_hash = {
+
+   "Japan" => ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Sapporo"],
+   "France" => [" Rue de Vaugirard, Paris ","Avenue des Gobelins, Paris","Rue saint-Fiacre, Paris", "Rue Paradis, Marseille", "Boulevard Baille, Marseille", "Rue Saint-Ferréol, Marseille", "Rue de la République, Lyon", "Quai Saint-Antoine, Lyon", "Rue du Président Édouard Herriot, Lyon", "Rue Alsace-Lorraine, Toulouse", "Boulevard de Strasbourg, Toulouse", "Rue du Taur, Toulouse", "Avenue Jean Médecin, Nice", "Promenade des Anglais, Nice", "Rue de France, Nice"],
+   "Brazil" => ["Avenida Paulista, São Paulo", "Rua Oscar Freire, São Paulo", "Rua da Consolação, São Paulo","Avenida Atlântica, Rio de Janeiro", "Rua Visconde de Pirajá, Rio de Janeiro", "Rua do Catete, Rio de Janeiro", "Eixo Monumental, Brasília", "Avenida das Nações, Brasília", "Setor Comercial Sul, Brasília", "Avenida Sete de Setembro, Salvador", "Rua Chile, Salvador", "Rua do Carmo, Salvador", "Avenida Beira Mar, Fortaleza", "Rua Barão de Studart, Fortaleza", "Rua Monsenhor Tabosa, Fortaleza"],
+   "Canada" => [
+                "Yonge Street, Toronto", "Queen Street West, Toronto", "Bloor Street East, Toronto",
+                "Rue Sainte-Catherine, Montreal", "Boulevard Saint-Laurent, Montreal", "Rue Sherbrooke, Montreal",
+                "Granville Street, Vancouver", "West Broadway, Vancouver", "Robson Street, Vancouver",
+                "Stephen Avenue, Calgary", "17th Avenue SW, Calgary", "MacLeod Trail SE, Calgary",
+                "Elgin Street, Ottawa", "Rideau Street, Ottawa", "Wellington Street, Ottawa"
+              ],
+   "India" => [
+              "Marine Drive, Mumbai", "Linking Road, Mumbai", "Nariman Point, Mumbai",
+              "Connaught Place, Delhi", "Karol Bagh, Delhi", "Hauz Khas, Delhi",
+              "MG Road, Bangalore", "Brigade Road, Bangalore", "Indiranagar, Bangalore",
+              "Anna Salai, Chennai", "T. Nagar, Chennai", "Velachery Main Road, Chennai",
+              "Park Street, Kolkata", "Camac Street, Kolkata", "Salt Lake Sector V, Kolkata"
+            ],
+   "Germany" => ["Unter den Linden, Berlin", "Kurfürstendamm, Berlin", "Friedrichstraße, Berlin",
+                "Maximilianstraße, Munich", "Leopoldstraße, Munich", "Sendlinger Straße, Munich",
+                "Mönckebergstraße, Hamburg", "Reeperbahn, Hamburg", "Jungfernstieg, Hamburg",
+                "Schildergasse, Cologne", "Hohenzollernring, Cologne", "Aachener Straße, Cologne",
+                "Zeil, Frankfurt", "Goethestraße, Frankfurt", "Fressgass, Frankfurt"
+              ],
+   "Australia" => ["George Street, Sydney", "Pitt Street, Sydney", "Oxford Street, Sydney",
+                  "Swanston Street, Melbourne", "Collins Street, Melbourne", "Lygon Street, Melbourne",
+                  "Queen Street, Brisbane", "Edward Street, Brisbane", "Boundary Street, Brisbane",
+                  "Hay Street, Perth", "Murray Street, Perth", "St Georges Terrace, Perth",
+                  "Rundle Mall, Adelaide", "King William Street, Adelaide", "Gouger Street, Adelaide"
+                ],
+   "Italy" => ["Via del Corso, Rome", "Piazza Navona, Rome", "Via dei Fori Imperiali, Rome",
+              "Corso Buenos Aires, Milan", "Via Monte Napoleone, Milan", "Piazza del Duomo, Milan",
+              "Via Toledo, Naples", "Spaccanapoli, Naples", "Via Chiaia, Naples",
+              "Via Roma, Turin", "Corso Vittorio Emanuele II, Turin", "Piazza Castello, Turin",
+              "Strada Nova, Venice", "Fondamenta Cannaregio, Venice", "Campo Santa Margherita, Venice"
+            ],
+   "South Africa" => ["Long Street, Cape Town", "Kloof Street, Cape Town", "Adderley Street, Cape Town",
+                      "Sandton Drive, Johannesburg", "William Nicol Drive, Johannesburg", "Oxford Road, Johannesburg",
+                      "Florida Road, Durban", "Umgeni Road, Durban", "North Coast Road, Durban",
+                      "Church Street, Pretoria", "Pretorius Street, Pretoria", "Helen Joseph Street, Pretoria",
+                      "Govan Mbeki Avenue, Port Elizabeth", "Cape Road, Port Elizabeth", "Main Road Walmer, Port Elizabeth"
+                    ],
+   "United States" => ["Broadway, New York", "Fifth Avenue, New York", "Wall Street, New York",
+                    "Hollywood Boulevard, Los Angeles", "Sunset Boulevard, Los Angeles", "Melrose Avenue, Los Angeles",
+                    "Michigan Avenue, Chicago", "State Street, Chicago", "Wacker Drive, Chicago",
+                    "Westheimer Road, Houston", "Main Street, Houston", "Kirby Drive, Houston",
+                    "Camelback Road, Phoenix", "Central Avenue, Phoenix", "Roosevelt Street, Phoenix"
+                  ],
+  }
 for n in 1..100 do
+  country = Country.all.sample
+  puts "creating a job #{country.name}"
+  p country_hash[country.name]
     Job.create!(
         company_name: Faker::Company.name,
         description: {
@@ -229,7 +282,7 @@ for n in 1..100 do
             Seniority: Faker::Job.seniority,
             Employment_Type: Faker::Job.employment_type,
             Languages: Faker::Nation.language,
-            Country: Faker::Address.country,
+            Country: country.name,
             Description: Faker::Lorem.paragraph(sentence_count: 5),
             },
         requirements: [
@@ -238,18 +291,18 @@ for n in 1..100 do
             Faker::Job.key_skill,
             Faker::Job.key_skill,
             ],
-        location: Faker::Address.city,
+        location: country_hash[country.name].sample,
         job_title: Faker::Job.title,
-        country_id: rand(Country.first.id..Country.last.id),
-        longitude: Faker::Number.between(from: -180.0, to: 180.0).round(4),
-        latitude: Faker::Number.between(from: -90.0, to: 90.0).round(4),
+        country_id: country.id,
+        # longitude: Faker::Number.between(from: -180.0, to: 180.0).round(4),
+        # latitude: Faker::Number.between(from: -90.0, to: 90.0).round(4),
     )
     puts "Seeding job #{n}"
 end
 
 for n in 1..20 do
     JobApplication.create!(
-        user_id: rand(User.first.id..User.last.id),
+        user_id: rand((User.first.id + 1 )..User.last.id),
         job_id: rand(Job.first.id..Job.last.id),
         cv: Faker::File.mime_type,
         cover_letter: Faker::File.mime_type,
