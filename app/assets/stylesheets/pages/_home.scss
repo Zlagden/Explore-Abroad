@@ -7,7 +7,13 @@ width: 100%;
 padding-left: 10rem;
 background-position: center;
 background-image: url("sunset.png");
-
+background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  left: 0;
 
 
 }
