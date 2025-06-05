@@ -1,13 +1,37 @@
-<h1>My Applications</h1>
+<h1 class="text-center">My Applications</h1>
 
 <% @job_applications.each do |app| %>
-<div class="card-product">
-  <div class="card-product-infos">
-    <h3><%= app.job.job_title %> </h3>
-    <p> Application-Status: <%= app.status %> </p>
-    <p> Date Applied: <%= app.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
-    <p>📍 Location: <%= app.job.location %> </p>
-    <%= link_to "View Job", job_path(app.job), class: "card-link btn btn-warning btn-sm" %>
+  <div class="card-product">
+    <div class="card-product-infos d-grid col-12">
+      <div class="p-2 flex-fill d-flex justify-content-between align-items-center">
+        <h3><%= app.job.job_title %></h3>
+        <div class="flex-fill text-end">
+          <%= link_to "View Job", job_path(app.job), class: "card-link btn btn-warning btn-sm" %>
+        </div>
+      </div>
+      <div class="p-2 flex-fill">
+        <p>📍 Location: <%= app.job.location %></p>
+      </div>
+
+      <div class="p-2 flex-fill">
+        <p>
+          Application Status:
+          <span class="badge
+            <%= case app.status.downcase
+                when "pending" then "text-bg-warning"
+                when "approved" then "text-bg-success"
+                when "rejected" then "text-bg-danger"
+                when "in progress" then "text-bg-info"
+                else "text-bg-secondary"
+                end %>">
+            <%= app.status %>
+          </span>
+        </p>
+      </div>
+       <div class="p-2 flex-fill">
+       <p>Date Applied: <%= app.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
+      </div>
+
+    </div>
   </div>
-</div>
 <% end %>

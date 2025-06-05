@@ -15,20 +15,36 @@
     </div>
 
     <div class="job-index-list col-12 d-flex" style="margin-top:3rem;">
-        <div class="job-list-filter col-3 mx-auto py-3 bg-secondary">
+
+        <div class="job-list-filter col-3 mx-auto py-3 bg-white">
             <div class="col-11 mx-auto">
                 <%= form_with url: @country ? country_jobs_path(@country) : jobs_path, method: :get, class: "d-flex-column" do |form|%>
-                    <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Search Jobs"
-                    %>
-                    <div class="filter-salary bg-white my-2 p-3" data-controller="toggle">
-                        <div class="filter-title ">
-                            <h4 class="btn bg-secondary px-2 py-1" data-action="click->toggle#switch"> Salary: </h4>
+                    <div class="job-search-bar pb-3 px-1">
+                        <div class="search-title d-flex">
+                            <i class="fa-solid fa-magnifying-glass mx-auto my-auto"></i>
+                            <h4 class="my-auto"> Job Finder </h4>
+                        </div>
+                        <div class="search-field py-3 mx-auto my-auto">
+                            <%= text_field_tag :query,
+                                params[:query],
+                                class: "form-control",
+                                placeholder: "Search Jobs"
+                            %>
+                        </div>
+                    </div>
+
+                    <div class="filter-salary sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto"> Salary: </h5>
+                            </div>
+                            <div class="caret-box my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
-                        <div class="filter-body" data-toggle-target="filterBox">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <div class="salary-checkbox">
                                 <input type="checkbox" value="30000-50000" name="salary" id="salary">
                                 <label for="salary"> $30,000 - $50,000 </label>
@@ -52,12 +68,18 @@
                         </div>
                     </div>
 
-                    <div class="filter-field bg-white my-2 p-3">
-                        <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Field: </h4>
+                    <div class="filter-field sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Field: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% field_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% field_array.push(j.description["Field"]) %>
@@ -70,20 +92,26 @@
                                 </div>
                             <% end %>
                         </div>
-                        
+
                     </div>
 
-                    <div class="filter-position bg-white my-2 p-3">
-                        <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Position: </h4>
+                    <div class="filter-position sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Position: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% position_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% position_array.push(j.description["Postion"]) %>
                             <% end %>
- 
+
                             <% position_array.uniq.sort.each do |position| %>
                                 <div class="employment-type-checkbox">
                                     <input type="checkbox" value=<%= "#{position}" %> name="position" id="position">
@@ -92,13 +120,19 @@
                             <% end %>
                         </div>
                     </div>
-                    
-                    <div class="filter-seniority bg-white my-2 p-3">
-                        <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Seniority: </h4>
+
+                    <div class="filter-seniority sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Seniority: </h5>
+                            </div>
+                            <div class="my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% seniority_array = [] %>
                             <% @jobs.each do |j| %>
                                 <% seniority_array.push(j.description["Seniority"]) %>
@@ -113,19 +147,25 @@
                         </div>
 
                     </div>
-                    
-                    <div class="filter-employment_type bg-white my-2 p-3">
-                        <div class="filter-title">
-                            <h4 class="bg-secondary px-2 py-1"> Employment Type: </h4>
+
+                    <div class="filter-employment_type sub-filter-box bg-white my-0 py-4 px-1" data-controller="toggle">
+                        <div class="filter-title d-flex">
+                            <div class="filter-title-left d-flex">
+                                <i class="fa-solid fa-list my-auto"></i>
+                                <h5 class="px-2 py-1 my-auto" data-action="click->toggle#showFilter"> Employment: </h5>
+                            </div>
+                            <div class="caret-box my-auto" data-toggle-target="caret">
+                                <i class="btn btn-white fa-solid fa-caret-right" data-action="click->toggle#showFilter"></i>
+                            </div>
                         </div>
 
-                        <div class="filter-body">
+                        <div class="filter-body d-none" data-toggle-target="filterBox">
                             <% employ_array = [] %>
 
                             <% @jobs.each do |j| %>
                                 <% employ_array.push(j.description["Employment_Type"]) %>
                             <% end %>
-                            
+
                             <% employ_array.uniq.sort.each do |employ| %>
                                 <div class="employment-type-checkbox">
                                     <input type="checkbox" value= <%= "#{employ}" %> name="employment_type" id="employment_type">
@@ -135,9 +175,14 @@
                         </div>
                     </div>
 
-                    <%= submit_tag "Search", name: "", class: "col-12 btn btn-primary" %>
+
+                    <div class="search-clear py-4">
+                        <% back = @country ? country_jobs_path : jobs_path %>
+                        <%= link_to "Clear", back, class: "search-clear-box sc-left my-3 py-2 btn btn-primary" %>
+                        <%= submit_tag "Search", name: "", class: "search-clear-box sc-right my-3 py-2 btn btn-primary" %>
+                    </div>
                 <% end %>
- 
+
             </div>
         </div>
 
@@ -146,14 +191,16 @@
 
             <% @jobs.each do |job| %>
                 <div class="job-card ">
-                    <p><%= job.job_title %><p>
-                    <p>Company: <%= job.company_name %></p>
-                    <p>Location: <%= job.location %></p>
-                    <p>Salary: <%= "$#{job.description["Salary"]} " %></p>
-                    <p>Seniority: <%= job.description["Seniority"] %></p>
-                    <p>Field: <%= job.description["Field"] %></p>
-                    <p>Employment Type: <%= job.description["Employment_Type"] %></p>
-                    <p><%= link_to 'View Details', job_path(job), class: 'btn' %></p>
+                  <h3><%= job.job_title %></h3>
+                  <h5>Company: <strong><%= job.company_name %></strong></h5>
+                  <h5>Location: <strong><%= job.location %></strong></h5>
+                  <div class=gray-card><i class="fa-solid fa-sack-dollar"></i><h6>Salary: <strong><%= "$#{job.description["Salary"]} " %></strong></h6></div>
+                  <div class=gray-card><i class="fa-solid fa-stairs"></i><p>Seniority: <strong><%= job.description["Seniority"] %></strong></p></div>
+                  <div class=gray-card><i class="fa-solid fa-briefcase"></i><p>Field: <strong><%= job.description["Field"] %></strong></p></div>
+                  <div class=gray-card><i class="fa-solid fa-building"></i><p>Employment Type: <strong><%= job.description["Employment_Type"] %></strong></p></div>
+                  <hr>
+                  <p><%= link_to 'View Details', job_path(job), class: 'btn' %></p>
+
                 </div>
             <% end %>
         </div>

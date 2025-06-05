@@ -1,14 +1,14 @@
-<div class="job-container col-12 mx-auto l-100 bg-secondary">
+<div class="job-container col-12 mx-auto l-100">
 
     <% #description %>
     <div class="job-details">
 
         <% #job banner %>
-        <div class="job-header col-12 mx-auto bg-warning">
+        <div class="job-header col-12 mx-auto">
             <div class="job-header-top m-0 pt-3 pb-1 px-4">
                 <h1><%= @job.job_title %></h1>
             </div>
-            <div class="job-header-bottom col-11 my-2 mx-auto px-0">
+            <div class="job-header-bottom col-12 my-3 mx-0 px-0">
                 <img class="m-0" src="https://static.vecteezy.com/system/resources/previews/006/948/451/large_2x/digital-marketing-concept-with-people-putting-content-images-marketing-to-the-web-dashboard-screen-search-engine-optimization-promotion-working-process-and-teamwork-flat-style-illustration-vector.jpg">
                 <img class="m-0" src="https://static.vecteezy.com/system/resources/previews/002/346/322/large_2x/online-programming-course-flat-concept-illustration-vector.jpg">
                 <img class="m-0" src="https://www.shutterstock.com/shutterstock/photos/586367912/display_1500/stock-vector-computer-code-debugging-concept-flat-style-illustration-586367912.jpg">
@@ -16,159 +16,257 @@
         </div>
 
         <% #job details %>
-        <div class="job-body">
+        <div class="job-body col-11 mx-auto">
 
-
-            <div class="job-details col-11 mx-auto bg-white">
-                <% #description card %>
-                <div class="job-description job-detail-card">
-                    <div class="card-sub-title job-description-top">
-                        <h4>Description:</h4>
-                    </div>
-                    <div class="card-body job-description-bottom">
-                        <p><%= @job.description["Description"] %></p>
-                    </div>
-                </div>
-
-                <% #skills card %>
-                <div class="job-requirement job-detail-card">
-                    <div class="card-sub-title job-requirement-top">
-                        <h4>Requirements:</h4>
-                    </div>
-                    <div class="card-body job-requirement-bottom">
-                        <%# @job.requirements.each do |req| %>
-                            <ul>
-                                <li><%#= req %></li>
-                            </ul>
-                        <%# end %>
-                    </div>
-                </div>
-
-                <% #specification card %>
-                <div class="job-specification job-detail-card">
-
-                    <% #Specification title %>
-                    <div class="card-sub-title job-specification-top">
-                        <h4>Specifications:</h4>
+            <div class="job-body-top col-12 d-flex">
+                <div class="job-details job-body-sub job-body-top-left col-8 mx-auto mb-0 yb-0 bg-white p-3">
+                    <% #description card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4>Description:</h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p style="white-space: pre-line;"><%= @job.description["Description"] %></p>
+                        </div>
                     </div>
 
-                    <% #Specification content %>
-                    <div class="card-body job-specification-bottom">
+                    <% #skills card %>
+                    <div class="job-requirement job-detail-card">
+                        <div class="card-sub-title job-requirement-top">
+                            <h4>Requirements:</h4>
+                        </div>
+                        <div class="card-body job-requirement-bottom">
+                            <% @job.requirements.each do |req| %>
+                                <ul>
+                                    <li><%= req %></li>
+                                </ul>
+                            <% end %>
+                        </div>
+                    </div>
 
-                        <div class="spec-grid row">
-                            <% #Salary card %>
+                    <% #specification card %>
+                    <div class="job-specification job-detail-card">
+
+                        <% #Specification title %>
+                        <div class="card-sub-title job-specification-top">
+                            <h4>Specifications:</h4>
+                        </div>
+
+                        <% #Specification content %>
+                        <div class="card-body job-specification-bottom">
+
+                            <div class="spec-grid row">
+                                <% #Salary card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-specification-sub-top">
+                                        <p>Salary:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-specification-sub-bottom">
+                                        <p><%= "$#{@job.description["Salary"]}" %></p>
+                                    </div>
+                                </div>
+                                
+                                <% #Employment_type card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-specification-sub-top">
+                                        <p>Employment Type:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-specification-sub-bottom">
+                                        <p><%= @job.description["Employment_Type"] %></p>
+                                    </div>
+                                </div>
+
+                                <% #Field card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-field-sub-top">
+                                        <p>Field:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-field-sub-bottom">
+                                        <p><%= @job.description["Field"] %></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spec-grid row">
+                                <% #Position card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-position-sub-top">
+                                        <p>Position:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-position-sub-bottom">
+                                        <p><%= @job.description["Postion"] %></p>
+                                    </div>
+                                </div>
+
+                                <% #Seniority card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-seniority-sub-top">
+                                        <p>Seniority:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-seniority-sub-bottom">
+                                        <p><%= @job.description["Seniority"] %></p>
+                                    </div>
+                                </div>
+
+                                <% #Language card %>
+                                <div class="job-spec-card col-md">
+                                    <div class="card-sub-sub-title job-language-sub-top">
+                                        <p>Language:<p>
+                                    </div>
+                                    <div class="card-sub-sub-body job-language-sub-bottom">
+                                        <p><%= @job.description["Languages"] %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% #Location card %>
+                    <div class="job-location job-detail-card">
+                        <% #location title %>
+                        <div class="card-sub-title job-location-top">
+                            <h4>Location:</h4>
+                        </div>
+
+                        <% #location body %>
+                        <div class="card-body job-location-bottom row">
+                            <% #conuntry card %>
                             <div class="job-spec-card col-md">
+                                <div class="card-sub-sub-title job-country-sub-top">
+                                    <p>Country:<p>
+                                </div>
+                                <div class="card-sub-sub-body job-country-sub-bottom">
+                                    <p><%= @job.country.name %></p>
+                                </div>
+                            </div>
+                            <% #location card %>
+                            <div class="job-spec-card col-md">
+                                <div class="card-sub-sub-title job-location-sub-top">
+                                    <p>Location:<p>
+                                </div>
+                                <div class="card-sub-sub-body job-location-sub-bottom">
+                                    <p><%= @job.location %></p>
+                                </div>
+                            </div>
+                            <div class="col-md"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-details job-body-sub job-body-top-left col-3 mx-auto mb-0 yb-0 bg-white p-3">
+                    <% #Company name card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Company: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <h4 class="mx-auto px-0"><%= @job.company_name %></h4>
+                        </div>
+                    </div>
+
+                    <% #Contact card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Contact: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <div>
                                 <div class="card-sub-sub-title job-specification-sub-top">
-                                    <p>Salary:<p>
+                                    <p><strong>Email:</strong></p>
+                                </div>
+                                <div class="card-sub-sub-body job-contact-sub-bottom">
+                                    <p><%= @job.description["Contact"] %></p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="card-sub-sub-title job-specification-sub-top">
+                                    <p><strong>Phone:</strong></p>
                                 </div>
                                 <div class="card-sub-sub-body job-specification-sub-bottom">
-                                    <p><%= "$#{@job.description["Salary"]}" %></p>
-                                </div>
-                            </div>
-                            
-                            <% #Employment_type card %>
-                            <div class="job-spec-card col-md">
-                                <div class="card-sub-sub-title job-specification-sub-top">
-                                    <p>Employment Type:<p>
-                                </div>
-                                <div class="card-sub-sub-body job-specification-sub-bottom">
-                                    <p><%= @job.description["Employment_Type"] %></p>
-                                </div>
-                            </div>
-
-                            <% #Field card %>
-                            <div class="job-spec-card col-md">
-                                <div class="card-sub-sub-title job-field-sub-top">
-                                    <p>Field:<p>
-                                </div>
-                                <div class="card-sub-sub-body job-field-sub-bottom">
-                                    <p><%= @job.description["Field"] %></p>
+                                    <p><%= @job.description["Phone_number"] %></p>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="spec-grid row">
-                            <% #Position card %>
-                            <div class="job-spec-card col-md">
-                                <div class="card-sub-sub-title job-position-sub-top">
-                                    <p>Position:<p>
-                                </div>
-                                <div class="card-sub-sub-body job-position-sub-bottom">
-                                    <p><%= @job.description["Postion"] %></p>
-                                </div>
-                            </div>
+                    <% #Visa card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Visa: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Visa"] %></p>
+                        </div>
+                    </div>
 
-                            <% #Seniority card %>
-                            <div class="job-spec-card col-md">
-                                <div class="card-sub-sub-title job-seniority-sub-top">
-                                    <p>Seniority:<p>
-                                </div>
-                                <div class="card-sub-sub-body job-seniority-sub-bottom">
-                                    <p><%= @job.description["Seniority"] %></p>
-                                </div>
-                            </div>
+                    <% #Holiday card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Holiday: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Holiday"] %></p>
+                        </div>
+                    </div>
 
-                            <% #Language card %>
-                            <div class="job-spec-card col-md">
-                                <div class="card-sub-sub-title job-language-sub-top">
-                                    <p>Language:<p>
-                                </div>
-                                <div class="card-sub-sub-body job-language-sub-bottom">
-                                    <p><%= @job.description["Languages"] %></p>
-                                </div>
-                            </div>
+                    <% #Health card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Health: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Health"] %></p>
+                        </div>
+                    </div>
+
+                    <% #Flexible card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Work-life balance: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Flexible"] %></p>
                         </div>
                     </div>
                 </div>
-
-                <% #Location card %>
-                <div class="job-location job-detail-card">
-                    <% #location title %>
-                    <div class="card-sub-title job-location-top">
-                        <h4>Location:</h4>
-                    </div>
-
-                    <% #location body %>
-                    <div class="card-body job-location-bottom row">
-                        <% #conuntry card %>
-                        <div class="job-spec-card col-md">
-                            <div class="card-sub-sub-title job-country-sub-top">
-                                <p>Country:<p>
-                            </div>
-                            <div class="card-sub-sub-body job-country-sub-bottom">
-                                <p><%= @job.country.name %></p>
-                            </div>
-                        </div>
-                         <% #location card %>
-                        <div class="job-spec-card col-md">
-                            <div class="card-sub-sub-title job-location-sub-top">
-                                <p>Location:<p>
-                            </div>
-                            <div class="card-sub-sub-body job-location-sub-bottom">
-                                <p><%= @job.location %></p>
-                            </div>
-                        </div>
-                        <div class="col-md"></div>
-                    </div>
-                </div>
+                
             </div>
+        </div>   
 
             
-            <div class="job-applys col-11 mx-auto my-5 py-5 bg-primary">
-                <div class="btn btn-danger col-12"> Hello </div> 
-                <div class="submit-box bg-white m-0 p-2">
-                    <div class="submit-title"><h3 class="m-0 p-2"> Application </h3></div>
+        <div class="job-applys col-12 mx-auto mt-0 py-5">
 
-                    <div class="submit-body">
-                        <%= simple_form_for [@job, @job_application] do |f| %>
-                            <%= f.input :cv  %>
-                            <%= f.input :cover_letter %>
-                            <%= f.submit "Submit Application", class: "btn btn-primary" %>
-                        <% end %>
-                    </div>
+            <div class="submit-box job-body-sub bg-white m-0 p-5 pb-1">
+                <div class="submit-title"><h2 class="m-0 p-2"> Application </h2></div>
+                        
+                <div class="submit-body col-12 py-4">
+                    <%= simple_form_for [@job, @job_application] do |f| %>
+                        <table class="submit-table">
+                            <tbody>
+                                <tr>
+                                    <th><h5 class="mx-auto"> Resume </h5></th>
+                                    <td><%= f.input :cv, label: false, class: "mx-auto" %></td>
+                                </tr>
+                                <tr>
+                                    <th><h5 class="mx-auto"> Cover Letter </h5></th>
+                                    <td><%= f.input :cover_letter, label: false, class: "col-12 mx-auto" %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="submit-button-box col-12 pt-4 d-flex justify-content-end">
+                            <button type="button" class="submit-button bg-warning p-3">
+                                    
+                                <%= f.submit "Submit Application", class: "submit-button-button btn btn-warning" %>
+                                <i class="fa-solid fa-plane mx-auto my-auto"></i> 
+                        </div>
+                    <% end %>
                 </div>
-            </div> 
-        </div>         
+            </div>
+        </div>
+        
 
     </div>
 </div>
+
+
