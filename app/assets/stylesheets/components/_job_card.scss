@@ -104,3 +104,25 @@ h2 {
   .job-list-content.bg-primary {
     background-color: transparent !important;
   }
+
+
+  .gray-card {
+      background-color: rgb(232, 232, 232);
+      border-radius: 10px;
+      padding: 5px;
+      width: 400px;
+      margin-bottom: 5px;
+      display: inline-block;
+      height: 60px;
+  }
+
+  hr {
+    color:#FA812F;
+  }
+h3{
+  font-family: "Funnel Display", sans-serif;
+
+ }
+h5 {
+  font-family: "Funnel Sans", sans-serif;
+}
