@@ -16,3 +16,12 @@
         font-weight: bold;
     }
 }
+
+.submit-body {
+    display: grid;
+
+    .form-control {
+        width: 80%;
+        justify-content: space-evenly;
+    }
+}

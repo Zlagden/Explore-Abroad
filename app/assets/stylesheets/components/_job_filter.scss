@@ -1,6 +1,10 @@
 .job-list-filter {
+    position: sticky;
+    max-height: 90vh;
+    top: 30px;
     border-radius: 15px;
-    height: 50rem;
+    overflow-y: scroll;
+
 }
 
 .job-search-bar {

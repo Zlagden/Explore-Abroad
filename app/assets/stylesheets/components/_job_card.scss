@@ -25,8 +25,15 @@
     }
 }
 
+.job-body-sub {
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    
+
+}
 
 .job-detail-card {
+
     padding: 16px;
     p {
         margin: 0px;
@@ -57,9 +64,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
-
-
 
 .job-spec-card {
 

@@ -49,6 +49,7 @@ Country.create!([
       { title: "Cultural Heritage", description: "Japanese cultural heritage is deeply woven into daily life and proudly preserved through centuries-old traditions. From the serene atmosphere of ancient Buddhist temples and Shinto shrines in Kyoto to the artistry of the tea ceremony and the seasonal beauty of cherry blossom festivals, Japan offers a unique cultural experience." },
       { title: "Innovation", description: "Japan is internationally acclaimed for its technological advancements and commitment to innovation. As the birthplace of global tech giants like Sony, Toyota, and Panasonic, Japan has been at the forefront of robotics, AI, and precision manufacturing. The country continues to lead in fields such as autonomous vehicles, renewable energy, and consumer electronics." },
     ],
+    Language: "Japanese",
   },
   image_url: "https://d1shf7n3qgesaf.cloudfront.net/wp-content/uploads/20240521155503/BALCountryOverview_Japan.webp",
   longitude: 138.2529,
@@ -66,7 +67,8 @@ Country.create!([
       { "title" => "Art and Architecture", "description" => "France is home to architectural wonders like Notre-Dame, Versailles, and the Eiffel Tower, and hosts world-renowned art collections at the Louvre and Musée d'Orsay." },
       { "title" => "Cuisine and Wine", "description" => "Known for its gourmet cuisine and wine regions like Bordeaux and Champagne, France’s food culture is UNESCO-listed and deeply integrated into daily life." },
       { "title" => "Elegant Lifestyle", "description" => "France offers a refined lifestyle that emphasises balance, leisure, and aesthetic appreciation, from café culture to boutique shopping and scenic countryside retreats." }
-      ]
+    ],
+    Language: "French",
     },
     image_url: "https://www.frenchclass.in/wp-content/uploads/2024/01/cities-in-france-paris-laforet.webp",
     longitude: 2.2137,
@@ -84,7 +86,8 @@ Country.create!([
       { title: "Natural Wonders", description: "Home to the Amazon rainforest, Iguazu Falls, and the Pantanal wetlands, Brazil is a paradise for nature lovers and ecotourism." },
       { title: "Festivals and Music", description: "Brazilian festivals such as Carnival are world-famous, showcasing samba parades, costumes, and a joyful celebration of cultural identity." },
       { title: "Diverse Economy", description: "As one of the BRICS nations, Brazil has a rapidly developing economy with strong sectors in energy, technology, agriculture, and manufacturing." }
-    ]
+    ],
+    Language: "Portuguese",
   },
     image_url: "https://delivery.gfobcontent.com/api/public/content/b5b22ce1ceb5489682db98d8186c4f73?v=40928581",
     longitude: -51.9253,
@@ -102,7 +105,8 @@ Country.create!([
       { title: "Natural Beauty", description: "Canada is home to breathtaking landscapes such as Banff National Park, Niagara Falls, and the Northern Lights, offering countless outdoor experiences year-round." },
       { title: "Multicultural Society", description: "Canada celebrates diversity and immigration, with cities like Toronto and Vancouver being some of the most multicultural in the world." },
       { title: "Education and Healthcare", description: "Canada provides free public healthcare and access to world-class universities, making it attractive for families and young professionals alike." }
-    ]
+    ],
+    Language: "English-CA & French",
   },
     image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRCZs9tDtSpJP2hifq1WJJ4ABSV9BHB0JP_NjfbEGGkJKzQwTp-arDdFljbCZcEnxVBKt2qlXFzp3SKCiUKoVcHAnnvfSICEMkUsb8W1g",
     longitude: -106.3468,
@@ -120,7 +124,8 @@ Country.create!([
         { title: "Spiritual Heritage", description: "India is the birthplace of major world religions including Hinduism, Buddhism, Jainism, and Sikhism. Spiritual destinations like Varanasi, Rishikesh, and Bodh Gaya attract millions each year." },
         { title: "Tech and Innovation", description: "India has become a global leader in IT and software development, hosting innovation hubs, startups, and major R&D centres for global tech companies." },
         { title: "Cuisine and Festivals", description: "Indian cuisine is globally celebrated for its flavour and diversity. Festivals such as Holi, Eid, and Diwali showcase the country's festive spirit and unity in diversity." }
-      ]
+      ],
+      Language: "Hindi",
   },
     image_url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np_CAY_mkgruVA5-bP_mch9E5wgYp_axowCxvEWwZOittCjzb0ycdpWXJ82-CbGaSyARzPGKBF8GqjMYkf4VF3OhYkbjAhgcpEx1-KEzzg9_9LZ4vT8ksg4NF2mDH6gTLR4g2E-=w1080-h624-n-k-no",
     longitude: 78.9629,
@@ -138,7 +143,8 @@ Country.create!([
         { title: "Engineering Excellence", description: "Germany is renowned for its precision engineering, automotive innovation, and contributions to mechanical and electrical design." },
         { title: "Efficient Infrastructure", description: "Germany boasts an exceptional public transport network, including high-speed trains, trams, and clean, punctual services across cities and rural areas." },
         { title: "Festivals and Traditions", description: "Traditional celebrations such as Oktoberfest and Christmas markets reflect the rich regional culture, offering food, music, and community spirit." }
-      ]
+      ],
+      Language: "German",
   },
     image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSVMTxXdNsIQm9oQ5JPPREFGXQ8ES-5nVfLw_vv9J-bZdMs6vHnZwBnFC8Cq82gI3lPuYIruh6tSsV1c-Fr3Xd0Uyq60ZhL8CPlr1Golw",
     longitude: 10.4515,
@@ -156,7 +162,8 @@ Country.create!([
         { title: "Natural Attractions", description: "From the Great Barrier Reef and Uluru to pristine beaches and national parks, Australia’s natural beauty is unmatched." },
         { title: "Work-Life Balance", description: "Australia ranks highly for quality of life, with a culture that values personal time, outdoor activities, and healthy living." },
         { title: "Multicultural Society", description: "Australia’s cities are home to people from over 200 countries, creating diverse food, languages, and cultural experiences." }
-      ]
+      ],
+      Language: "English-AU",
   },
     image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT-sVcZhh2HQhATZHOx0eAeJ3Q_q6THgxRZkqKupL2ltWDjof8Gsk_nKqyj-Z0Q9bNxwtElkVeJDRt1cPqElHteAo8Ask8Pg6cKF58uzA",
     longitude: 133.7751,
@@ -174,7 +181,8 @@ Country.create!([
         { title: "Cultural Heritage", description: "Italy is home to more UNESCO World Heritage Sites than any other country, including iconic landmarks like the Colosseum, Vatican City, and Venice canals." },
         { title: "Food and Lifestyle", description: "Italian cuisine is known and loved worldwide. Regional dishes, fresh ingredients, and long communal meals are staples of daily life." },
         { title: "Fashion and Design", description: "As a global fashion capital, Italy hosts major events like Milan Fashion Week and is home to renowned brands such as Gucci, Prada, and Armani." }
-      ]
+      ],
+      Language: "Italian",
   },
     image_url: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQxb7Gx_z_uyF9yger2ahCbt4upYJGM0D2BozCtTfPWUTU7EWSy7_wqJpgIwPETmihCed6l2auzxnVtIDZzgnPqn93jc4OnQm7hRSH4eQ",
     longitude: 12.5674,
@@ -192,7 +200,8 @@ Country.create!([
         { title: "Natural Diversity", description: "From safaris in Kruger National Park to Table Mountain and the Garden Route, South Africa’s natural beauty spans savannahs, mountains, coastlines, and deserts." },
         { title: "Cultural Fusion", description: "South Africa’s culture blends African traditions with colonial heritage, seen in its cuisine, languages, festivals, and music genres like jazz, house, and kwaito." },
         { title: "Entrepreneurial Growth", description: "The country is home to one of Africa’s largest economies, with growing opportunities in fintech, renewable energy, and creative industries." }
-      ]
+      ],
+      Language: "Afrikaans-English-isiNdebele-isiXhosa-isiZulu-Sesotho-Setswana-siSwati-Tshivenda-Xitsonga-Sepedi",
   },
     image_url: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSlgF2dXC-_gxqDDA0thQ1PVX669-lhsohZXSnQCqBWhOGF4wuRuG6_0nUtJOWbnCKYWNAFXlgTwp_rB6vNYCn_Ki_T3NCRgWADL_NoNA",
     longitude: 22.9375,
@@ -210,7 +219,8 @@ Country.create!([
         { title: "Career Opportunities", description: "The U.S. is home to thousands of global companies and startups, offering a wide range of career paths in nearly every industry." },
         { title: "Cultural Influence", description: "American media, music, and technology have a strong global impact, with many trends and innovations originating from the U.S." },
         { title: "Natural Landscapes", description: "From national parks like Yellowstone and Yosemite to coastlines and deserts, the U.S. offers diverse outdoor experiences across its 50 states." }
-      ]
+      ],
+      Language: "English-US",
   },
     image_url: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ldyUyMHlvcmt8ZW58MHx8MHx8fDA%3D",
     longitude: -95.7129,
@@ -269,31 +279,64 @@ country_hash = {
                     "Camelback Road, Phoenix", "Central Avenue, Phoenix", "Roosevelt Street, Phoenix"
                   ],
   }
+
+
+job_descript = <<-HEREDOC
+
+  We are seeking a motivated and dedicated individual to join our team in a dynamic and fast-paced environment. 
+  The ideal candidate will be responsible for performing a variety of tasks and supporting day-to-day operations 
+  to ensure overall success. This role requires strong communication skills, attention to detail, and the ability 
+  to work both independently and collaboratively.
+
+  The position involves interacting with internal and external stakeholders to meet organizational objectives. 
+  You will be expected to manage priorities, adapt to shifting demands, and maintain a high level of professionalism 
+  at all times. A flexible approach and willingness to learn are key to thriving in this role.
+
+  Candidates should be proactive, dependable, and capable of handling multiple responsibilities efficiently. 
+  Familiarity with common tools and platforms is preferred, but not required. Prior experience in a similar role 
+  is a plus, though we value a strong work ethic and the right attitude above all.
+
+HEREDOC
+
+
+
+
 for n in 1..100 do
   country = Country.all.sample
-  puts "creating a job #{country.name}"
-  p country_hash[country.name]
-    Job.create!(
-        company_name: Faker::Company.name,
-        description: {
-            Salary: Faker::Number.between(from: 30000, to: 120000).to_i,
-            Field: Faker::Job.field,
-            Postion: Faker::Job.position,
-            Seniority: Faker::Job.seniority,
-            Employment_Type: Faker::Job.employment_type,
-            Languages: Faker::Nation.language,
-            Country: country.name,
-            Description: Faker::Lorem.paragraph(sentence_count: 5),
-            },
-        requirements: [
-            Faker::Job.key_skill,
-            Faker::Job.key_skill,
-            Faker::Job.key_skill,
-            Faker::Job.key_skill,
-            ],
-        location: country_hash[country.name].sample,
-        job_title: Faker::Job.title,
-        country_id: country.id,
+  # puts "creating a job #{country.name}"
+  # p country_hash[country.name]
+
+  job_require = []
+  for z in 1..rand(5..10) do 
+    job_require.push(Faker::Job.key_skill)
+  end
+  uniq_job_require = job_require.uniq
+  
+  faker_company = Faker::Company.name
+
+  Job.create!(
+      company_name: faker_company,
+      description: {
+          Salary: Faker::Number.between(from: 30000, to: 120000).to_i,
+          Field: Faker::Job.field,
+          Postion: Faker::Job.position,
+          Seniority: Faker::Job.seniority,
+          Employment_Type: Faker::Job.employment_type,
+          Languages: country.information["Language"] ,
+          Country: country.name,
+          Description: job_descript,
+
+          Contact: "#{faker_company.downcase.gsub(' ', '_')}@gmail.com",
+          Phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+          Holiday: "30 days holiday plus national holidays, with the option to purchase additional days",
+          Health: "Comprehensive private healthcare insurance, including medical, dental, and vision coverage, with options for dependents and wellness programs.",
+          Flexible: "Options for flexible scheduling to support work-life balance and accommodate individual needs.",
+
+          },
+      requirements: uniq_job_require.sort,
+      location: country_hash[country.name].sample,
+      job_title: Faker::Job.title,
+      country_id: country.id,
         # longitude: Faker::Number.between(from: -180.0, to: 180.0).round(4),
         # latitude: Faker::Number.between(from: -90.0, to: 90.0).round(4),
     )
