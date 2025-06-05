@@ -30,6 +30,14 @@
     border-radius: 10px;
 }
 
+.job-contact-sub-bottom {
+    width: 100%;
+    word-wrap: break-word;
+    p {
+        width: 100%;
+        text-wrap: wrap;
+    }
+}
 
 .job-detail-card {
     padding: 16px;
