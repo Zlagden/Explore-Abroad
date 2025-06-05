@@ -302,7 +302,7 @@ end
 
 for n in 1..20 do
     JobApplication.create!(
-        user_id: rand(User.first.id..User.last.id),
+        user_id: rand((User.first.id + 1 )..User.last.id),
         job_id: rand(Job.first.id..Job.last.id),
         cv: Faker::File.mime_type,
         cover_letter: Faker::File.mime_type,
