@@ -23,7 +23,8 @@ export default class extends Controller {
       });
 
       this.#addMarkersToMap()
-
+      this.markerCoordinates = this.markersValue.map(marker => [marker.lng, marker.lat]);
+      this.currentIndex = 0;
     // beginning of map
     this.geojson = {
       'type': 'FeatureCollection',
@@ -63,7 +64,7 @@ export default class extends Controller {
 
       this.startTime = performance.now();
       this.animateLine = this.animateLine.bind(this);
-      this.animateLine();
+      this.animateLine(performance.now());
 
 
 
@@ -90,31 +91,37 @@ export default class extends Controller {
           });
 
   }
-   animateLine(timestamp) {
-            if (this.resetTime) {
-                // resume previous progress
-                this.startTime = performance.now() - this.progress;
-                this.resetTime = false;
-            } else {
-               this.progress = timestamp - this.startTime;
-            }
+   animateLine = (timestamp) => {
+      if (!this.startTime || this.resetTime) {
+        this.startTime = timestamp;
+        this.resetTime = false;
+      }
 
-            // restart if it finishes a loop
-            if (this.progress > this.speedFactor * 360) {
-                this.startTime = timestamp;
-                this.geojson.features[0].geometry.coordinates = [];
-            } else {
-                const x = this.progress / this.speedFactor;
-                // draw a sine wave with some math.
-                const y = Math.sin((x * Math.PI) / 90) * 40;
-                // append new coordinates to the lineString
-                this.geojson.features[0].geometry.coordinates.push([x, y]);
-                // then update the map
-                this.map.getSource('line').setData(this.geojson);
-            }
-            // Request the next frame of the animation.
-            this.animation = requestAnimationFrame(this.animateLine);
-        }
+      // Stop when all marker points are visited
+      if (this.currentIndex >= this.markerCoordinates.length - 1) return;
+
+      const start = this.markerCoordinates[this.currentIndex];
+      const end = this.markerCoordinates[this.currentIndex + 1];
+      const duration = 5000; // 1 second per segment
+      const progress = (timestamp - this.startTime) / duration;
+
+      if (progress < 1) {
+        const lng = start[0] + (end[0] - start[0]) * progress;
+        const lat = start[1] + (end[1] - start[1]) * progress;
+        this.geojson.features[0].geometry.coordinates.push([lng, lat]);
+        this.map.getSource('line').setData(this.geojson);
+
+        this.animation = requestAnimationFrame(this.animateLine);
+      } else {
+        // Ensure we end exactly at the next marker
+        this.geojson.features[0].geometry.coordinates.push(end);
+        this.map.getSource('line').setData(this.geojson);
+
+        this.currentIndex += 1;
+        this.startTime = timestamp;
+        this.animation = requestAnimationFrame(this.animateLine);
+      }
+    };
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
