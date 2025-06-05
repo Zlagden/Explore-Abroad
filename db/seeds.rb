@@ -343,9 +343,9 @@ for n in 1..100 do
     puts "Seeding job #{n}"
 end
 
-for n in 1..20 do
+for n in 1..5 do
     JobApplication.create!(
-        user_id: rand(User.first.id..User.last.id),
+        user_id: User.first.id,
         job_id: rand(Job.first.id..Job.last.id),
         cv: Faker::File.mime_type,
         cover_letter: Faker::File.mime_type,
