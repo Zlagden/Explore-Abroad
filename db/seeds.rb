@@ -331,7 +331,7 @@ for n in 1..100 do
           Holiday: "30 days holiday plus national holidays, with the option to purchase additional days",
           Health: "Comprehensive private healthcare insurance, including medical, dental, and vision coverage, with options for dependents and wellness programs.",
           Flexible: "Options for flexible scheduling to support work-life balance and accommodate individual needs.",
-
+          Visa: "We offer visa sponsorship and relocation assistance to support your move and work authorization.",
           },
       requirements: uniq_job_require.sort,
       location: country_hash[country.name].sample,
@@ -345,7 +345,7 @@ end
 
 for n in 1..20 do
     JobApplication.create!(
-        user_id: rand((User.first.id + 1 )..User.last.id),
+        user_id: rand(User.first.id..User.last.id),
         job_id: rand(Job.first.id..Job.last.id),
         cv: Faker::File.mime_type,
         cover_letter: Faker::File.mime_type,

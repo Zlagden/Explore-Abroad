@@ -153,40 +153,111 @@
                     </div>
                 </div>
 
-                <div class="job-details job-body-sub job-body-top-right col-3 mx-auto mb-0 yb-0 bg-white p-3"
-                    <% #Company Name %>
-                    <div class="job-company-name job-detail-card">
+                <div class="job-details job-body-sub job-body-top-left col-3 mx-auto mb-0 yb-0 bg-white p-3">
+                    <% #Company name card %>
+                    <div class="job-description job-detail-card">
                         <div class="card-sub-title job-description-top">
-                            <h4>Company Name:</h4>
+                            <h4> Company: </h4>
                         </div>
-                        <div class="card-body job-company-name-bottom">
-                            <p><%= @job.company_name %></p>
+                        <div class="card-body job-description-bottom">
+                            <h4 class="mx-auto px-0"><%= @job.company_name %></h4>
                         </div>
                     </div>
 
-      
+                    <% #Contact card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Contact: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <div>
+                                <div class="card-sub-sub-title job-specification-sub-top">
+                                    <p><strong>Email:</strong></p>
+                                </div>
+                                <div class="card-sub-sub-body job-specification-sub-bottom">
+                                    <p><%= @job.description["Contact"] %></p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="card-sub-sub-title job-specification-sub-top">
+                                    <p><strong>Phone:</strong></p>
+                                </div>
+                                <div class="card-sub-sub-body job-specification-sub-bottom">
+                                    <p><%= @job.description["Phone_number"] %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% #Visa card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Visa: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Visa"] %></p>
+                        </div>
+                    </div>
+
+                    <% #Holiday card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Holiday: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Holiday"] %></p>
+                        </div>
+                    </div>
+
+                    <% #Health card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Health: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Health"] %></p>
+                        </div>
+                    </div>
+
+                    <% #Flexible card %>
+                    <div class="job-description job-detail-card">
+                        <div class="card-sub-title job-description-top">
+                            <h4> Work-life balance: </h4>
+                        </div>
+                        <div class="card-body job-description-bottom">
+                            <p><%= @job.description["Flexible"] %></p>
+                        </div>
+                    </div>
                 </div>
+                
+
             </div>
            
 
             
             <div class="job-applys col-11 mx-auto mt-0 py-5">
 
-                <div class="submit-box job-body-sub bg-white m-0 p-2">
+                <div class="submit-box job-body-sub bg-white m-0 p-5">
                     <div class="submit-title"><h3 class="m-0 p-2"> Application </h3></div>
-
-                    <div class="submit-body">
+                            
+                    <div class="submit-body col-12">
                         <%= simple_form_for [@job, @job_application] do |f| %>
-                            
-                        
-                            <h5 class="col-11 mx-auto"> Resume </h5>  
-                            <%= f.input :cv, label: false, class: "col-11 mx-auto" %>
-                        
-                    
-                            <h5 class="col"> Cover Letter </h5> 
-                            <%= f.input :cover_letter, label: false, class: "col-8" %>
-                            
-                            <%= f.submit "Submit Application", class: "btn btn-primary" %>
+                            <table class="submit-table">
+                                <tbody>
+                                    <tr>
+                                        <th><h5 class="mx-auto"> Resume </h5></th>
+                                        <td><%= f.input :cv, label: false, class: "mx-auto" %></td>
+                                    </tr>
+                                    <tr>
+                                        <th><h5 class="col-12 mx-auto"> Cover Letter </h5></th>
+                                        <td><%= f.input :cover_letter, label: false, class: "col-12 mx-auto" %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="submit-button-box col-4 mx-auto pt-4">    
+                                <%= f.submit "Submit Application", class: "submit-button btn btn-warning p-4" %>
+                            </div>
                         <% end %>
                     </div>
                 </div>
@@ -195,3 +266,5 @@
 
     </div>
 </div>
+
+
