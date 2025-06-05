@@ -1,19 +1,14 @@
 <h1 class="text-center">My Applications</h1>
 
 <% @job_applications.each do |app| %>
-  <div class="card-product">
-    <div class="card-product-infos d-grid col-12">
-      <div class="p-2 flex-fill d-flex justify-content-between align-items-center">
-        <h3><%= app.job.job_title %></h3>
-        <div class="flex-fill text-end">
-          <%= link_to "View Job", job_path(app.job), class: "card-link btn btn-warning btn-sm" %>
-        </div>
-      </div>
-      <div class="p-2 flex-fill">
+  <div class="cards-product">
+
+      <div class="box-card">
+       <h3><%= app.job.job_title %></h3>
         <p>📍 Location: <%= app.job.location %></p>
       </div>
 
-      <div class="p-2 flex-fill">
+      <div class="box-card">
         <p>
           Application Status:
           <span class="badge
@@ -27,10 +22,12 @@
             <%= app.status %>
           </span>
         </p>
+         <p>Date Applied: <%= app.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
       </div>
-       <div class="p-2 flex-fill">
-       <p>Date Applied: <%= app.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
-      </div>
+
+      <div class="box-card flex-fill text-end">
+          <%= link_to "View Job", job_path(app.job), class: "card-link btn btn-warning btn-sm" %>
+        </div>
 
     </div>
   </div>

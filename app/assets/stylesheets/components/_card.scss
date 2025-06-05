@@ -114,6 +114,7 @@ h3 {
 
 h1 {
   align-self: centre;
+  padding: 15px 0;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -152,4 +153,30 @@ h1 {
 
 .card-product-infos.d-flex {
   flex: 1;
+}
+
+
+.cards-product {
+  flex: 1;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display:flex;
+  align-items: center;
+  // margin: 20px;
+  border-radius: 2px;
+  width:45vw;
+  height: 10rem;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.box-card {
+  display:inline-block;
+  align-items: center;
+  justify-content: center;
+  padding-right:30px;
+  width: 700px;
 }
