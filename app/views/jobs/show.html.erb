@@ -255,8 +255,11 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="submit-button-box col-4 mx-auto pt-5">    
-                                <%= f.submit "Submit Application", class: "submit-button btn btn-warning p-4" %>
+                            <div class="submit-button-box col-12 pt-5 d-flex justify-content-end">
+                                <button type="button" class="submit-button bg-warning p-3">
+                                       
+                                    <%= f.submit "Submit Application", class: "submit-button-button btn btn-warning" %>
+                                    <i class="fa-solid fa-plane mx-auto my-auto"></i> 
                             </div>
                         <% end %>
                     </div>
