@@ -1,0 +1,41 @@
+.checkbox {
+  background-color: white;
+  border-radius: 10px;
+  padding: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 50rem;
+  height: 20rem;
+  justify-items: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  .form-check-label {
+    font-size: 24px;
+    margin-left: 5px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    font-family: "Funnel Sans", sans-serif;
+  }
+  .form-check-input {
+    width: 30px;
+
+  }
+  .check-con {
+    display: flex;
+  }
+
+.form-check-input:checked {
+  background-color: #FA812F;
+  border-color: #FA812F;
+}
+.line-check{
+  color: black;
+}
+
+.h2 {
+  font-family: "Funnel Display", sans-serif;
+}
+}

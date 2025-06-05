@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :job_applications, only: [:index, :show] do
     collection do
       get :my_applications  # Custom route to list applications for the current user
-      get :my_journeys    # Custom route to list journeys for the current user
+      get :my_journeys   # Custom route to list journeys for the current user
     end
   end
 
