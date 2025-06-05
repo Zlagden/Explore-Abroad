@@ -15,6 +15,7 @@
     </div>
 
     <div class="job-index-list col-12 d-flex" style="margin-top:3rem;">
+
         <div class="job-list-filter col-3 mx-auto py-3 bg-white">
             <div class="col-11 mx-auto">
                 <%= form_with url: @country ? country_jobs_path(@country) : jobs_path, method: :get, class: "d-flex-column" do |form|%>
@@ -173,7 +174,6 @@
                             <% end %>
                         </div>
                     </div>
-                    
                     
                     <div class="search-clear py-4">
                         <% back = @country ? country_jobs_path : jobs_path %>
