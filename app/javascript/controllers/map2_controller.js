@@ -9,7 +9,7 @@ export default class extends Controller {
     markers: Array
   }
   connect() {
-     this.speedFactor = 30; // number of frames per longitude degree
+     this.speedFactor = 120; // number of frames per longitude degree
       this.animation; // to store and cancel the animation
       this.startTime = 0;
       this.progress = 0; // progress = timestamp - startTime
@@ -62,8 +62,8 @@ export default class extends Controller {
         });
 
       this.startTime = performance.now();
-
-
+      this.animateLine = this.animateLine.bind(this);
+      this.animateLine();
 
 
 
@@ -71,7 +71,7 @@ export default class extends Controller {
 
     });
 
-    this.animateLine();
+
     // click the button to pause or play
           this.pauseButton.addEventListener('click', () => {
               this.pauseButton.classList.toggle('pause');
@@ -90,7 +90,7 @@ export default class extends Controller {
           });
 
   }
-   #animateLine() {
+   animateLine(timestamp) {
             if (this.resetTime) {
                 // resume previous progress
                 this.startTime = performance.now() - this.progress;
@@ -117,8 +117,10 @@ export default class extends Controller {
         }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map);
     })
   }

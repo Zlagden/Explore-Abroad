@@ -21,7 +21,8 @@ class JobApplicationsController < ApplicationController
     @markers = @job_applications.map do |job_application|
       {
         lat: job_application.job.latitude,
-        lng: job_application.job.longitude
+        lng: job_application.job.longitude,
+        info_window_html: render_to_string(partial: "jobs/info_window", locals: { job: job_application.job })
       }
     end
   end
