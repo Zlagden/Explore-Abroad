@@ -239,9 +239,9 @@
             <div class="job-applys col-11 mx-auto mt-0 py-5">
 
                 <div class="submit-box job-body-sub bg-white m-0 p-5">
-                    <div class="submit-title"><h3 class="m-0 p-2"> Application </h3></div>
+                    <div class="submit-title"><h2 class="m-0 p-2"> Application </h2></div>
                             
-                    <div class="submit-body col-12">
+                    <div class="submit-body col-12 py-4">
                         <%= simple_form_for [@job, @job_application] do |f| %>
                             <table class="submit-table">
                                 <tbody>
@@ -250,12 +250,12 @@
                                         <td><%= f.input :cv, label: false, class: "mx-auto" %></td>
                                     </tr>
                                     <tr>
-                                        <th><h5 class="col-12 mx-auto"> Cover Letter </h5></th>
+                                        <th><h5 class="mx-auto"> Cover Letter </h5></th>
                                         <td><%= f.input :cover_letter, label: false, class: "col-12 mx-auto" %></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="submit-button-box col-4 mx-auto pt-4">    
+                            <div class="submit-button-box col-4 mx-auto pt-5">    
                                 <%= f.submit "Submit Application", class: "submit-button btn btn-warning p-4" %>
                             </div>
                         <% end %>
