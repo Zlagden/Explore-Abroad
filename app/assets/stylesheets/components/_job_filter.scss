@@ -1,6 +1,6 @@
 .job-list-filter {
     border-radius: 15px;
-    height: auto;
+    height: 50rem;
 }
 
 .job-search-bar {
@@ -45,11 +45,6 @@
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
-
-    position: -webkit-sticky;
-    position: sticky;
-    top: -1px;
-    
 
 
     .search-clear-box {
