@@ -9,11 +9,8 @@
       <div class="card-trip">
         <%= image_tag country.image_url, alt: "#{country.name} flag" %>
 
-        <div class="card-trip-infos mx-auto">
-          <div>
-            <h2><%= country.name %></h2>
-            <p><%= truncate(country.description, length: 100) if country.respond_to?(:description) %></p>
-          </div>
+        <div class="card-trip-infos text-center w-100">
+            <h2 class="text-center"><%= country.name %></h2>
         </div>
       </div>
     <% end %>
